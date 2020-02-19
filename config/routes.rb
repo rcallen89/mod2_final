@@ -13,7 +13,13 @@ Rails.application.routes.draw do
     get '/profile', to: 'users#show'
   end
 
+  scope module: :employee do
+    get '/merchant', to: 'merchant#show'
+  end
 
+  scope module: :admin do
+    get '/admin', to: 'admin#show'
+  end
 
   # TO BE NAMESPACED
   get "/merchants", to: "merchants#index"
