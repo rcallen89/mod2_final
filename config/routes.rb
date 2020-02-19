@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  scope module: :visitors do
+    get '/register', to: "users#new"
+    post '/users', to: "users#create"
+  end
+
+  scope module: :users do
+    get '/profile', to: 'users#show'
+  end
+
+  
+  
+  # TO BE NAMESPACED
   get "/merchants", to: "merchants#index"
   get "/merchants/new", to: "merchants#new"
   get "/merchants/:id", to: "merchants#show"
