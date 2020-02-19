@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  get "/", to: "welcome#index"
+  get "/login", to: "login#index"
+
   scope module: :visitors do
     get '/register', to: "users#new"
     post '/users', to: "users#create"
@@ -10,8 +13,8 @@ Rails.application.routes.draw do
     get '/profile', to: 'users#show'
   end
 
-  
-  
+
+
   # TO BE NAMESPACED
   get "/merchants", to: "merchants#index"
   get "/merchants/new", to: "merchants#new"
