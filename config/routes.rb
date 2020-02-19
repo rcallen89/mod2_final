@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   end
 
   scope module: :users do
-    get '/profile', to: 'users#index'
+    get '/profile', to: 'users#show'
   end
+
 
   
   
