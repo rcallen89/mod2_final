@@ -1,6 +1,6 @@
 class Users::UsersController < ApplicationController
 
-  def show
+  def index
   
   end
 
