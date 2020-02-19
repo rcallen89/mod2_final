@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  
+  
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+
   scope module: :visitors do
     get '/register', to: "users#new"
     post '/users', to: "users#create"
   end
 
   scope module: :users do
-    get '/profile', to: 'users#show'
+    get '/profile', to: 'users#index'
   end
 
   
