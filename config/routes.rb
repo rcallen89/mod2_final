@@ -14,8 +14,10 @@ Rails.application.routes.draw do
   end
 
   scope module: :users do
-    resource :profile, only: [:show, :edit, :update]
-    # get '/', to: 'users#index'
+    # resource :profile, only: [:update]
+    get '/profile', to: 'users#show'
+    get '/profile/edit', to: 'users#edit'
+    patch '/users', to: 'users#update'
   end
 
   namespace :merchant do
