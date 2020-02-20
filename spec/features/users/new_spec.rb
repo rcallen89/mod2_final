@@ -15,7 +15,7 @@ RSpec.describe 'New Registration Page', type: :feature do
       fill_in :Password, with: 'password'
       fill_in :user_password_confirmation, with: 'password'
 
-      click_on "Register Now"
+      click_on "Create User"
 
       expect(current_path).to eq("/profile")
       expect(page).to have_content('Successfully Registered and Logged In')
@@ -36,7 +36,7 @@ RSpec.describe 'New Registration Page', type: :feature do
       fill_in :Password, with: 'password'
       fill_in :user_password_confirmation, with: 'password'
 
-      click_on "Register Now"
+      click_on "Create User"
 
       expect(page).to have_content("Zip can't be blank")
 
@@ -60,12 +60,11 @@ RSpec.describe 'New Registration Page', type: :feature do
     fill_in :Password, with: 'Something'
     fill_in :user_password_confirmation, with: 'Something'
 
-    click_on "Register Now"
+    click_on "Create User"
 
     expect(page).to_not have_content("Mary")
 
     expect(page).to have_content("Email has already been taken")
-
     expect(find_field('Name').value).to eq 'Mary'
     expect(find_field('Street address').value).to eq '2859 somthing st.'
     expect(find_field('City').value).to eq 'Boston'
