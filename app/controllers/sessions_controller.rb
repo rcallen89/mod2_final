@@ -1,12 +1,16 @@
 class SessionsController < ApplicationController
 
   def new
+    if current_user
+      flash[:notice] = "You are already logged in."
+      route_by_role(current_user)
+    end
   end
 
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
-      session[:user_id] = user.id 
+      session[:user_id] = user.id
       route_by_role(user)
     else
       flash[:error] = "Invalid Login"

@@ -1,4 +1,4 @@
-<%= form_for @user do |f|%>
+<%= form_for @user, url: users_path do |f|%>
   <%= f.label :name %>
   <%= f.text_field :name, value: @user.name%>
 
@@ -17,11 +17,11 @@
   <%= f.label :email %>
   <%= f.email_field :email %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= f.label :password, hidden: (true if current_user != nil) %>
+  <%= f.password_field :password, hidden: (true if current_user != nil) %>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+  <%= f.label :password_confirmation, hidden: (true if current_user != nil) %>
+  <%= f.password_field :password_confirmation, hidden: (true if current_user != nil) %>
 
-  <%= f.submit %>
+  <%= f.submit button_text %>
 <% end %>
