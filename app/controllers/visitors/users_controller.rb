@@ -1,6 +1,7 @@
 class Visitors::UsersController < ApplicationController
 
   def new
+    @user = User.new
   end
 
   def create
@@ -10,7 +11,7 @@ class Visitors::UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/profile'
     else
-      flash[:error] = user.errors.full_messages.to_sentence
+
       redirect_to '/register'
     end
   end
