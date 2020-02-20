@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     # resource :profile, only: [:update]
     get '/profile', to: 'users#show'
     get '/profile/edit', to: 'users#edit'
+    get '/profile/edit/password', to: 'users#change_password'
     patch '/users', to: 'users#update'
   end
 

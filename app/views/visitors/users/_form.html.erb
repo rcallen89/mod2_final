@@ -16,12 +16,13 @@
 
   <%= f.label :email %>
   <%= f.email_field :email %>
+  <% if current_user == nil %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
 
-  <%= f.label :password, hidden: (true if current_user != nil) %>
-  <%= f.password_field :password, hidden: (true if current_user != nil) %>
-
-  <%= f.label :password_confirmation, hidden: (true if current_user != nil) %>
-  <%= f.password_field :password_confirmation, hidden: (true if current_user != nil) %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  <% end %>
 
   <%= f.submit button_text %>
 <% end %>
