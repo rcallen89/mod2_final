@@ -1,4 +1,6 @@
 class Admin::AdminController < Admin::BaseController
-    def show 
-    end
+
+  def show 
+  end
+
 end
