@@ -13,8 +13,8 @@ Rails.application.routes.draw do
     post '/users', to: "users#create"
   end
 
-  scope module: :users do
-    get '/profile', to: 'users#show'
+  scope :profile, module: :users do
+    get '/', to: 'users#show'
   end
 
   namespace :merchant do
