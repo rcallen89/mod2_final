@@ -78,6 +78,7 @@ RSpec.describe 'Login and Logout', type: :feature do
 
       visit "/login"
 
+      expect(current_path).to eq("/profile")
       expect(page).to have_content("You are already logged in.")
     end
     it "employee is redirected to their profile and sees message that they are already logged in" do
@@ -90,6 +91,7 @@ RSpec.describe 'Login and Logout', type: :feature do
 
       visit "/login"
 
+      expect(current_path).to eq("/merchant")
       expect(page).to have_content("You are already logged in.")
     end
     it "employee is redirected to their profile and sees message that they are already logged in" do
@@ -102,6 +104,7 @@ RSpec.describe 'Login and Logout', type: :feature do
 
       visit "/login"
 
+      expect(current_path).to eq("/admin")
       expect(page).to have_content("You are already logged in.")
     end
   end
