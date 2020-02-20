@@ -15,7 +15,10 @@
         <%= link_to "My Profile", "/profile"%>
         <%= link_to "Logout", "/logout", method: :delete %>
           <% if current_user.role == "MerchantEmployee" %>
-            <%= link_to "Merchant Dashboard" %>
+            <%= link_to "Merchant Dashboard", "/merchant" %>
+          <% elsif current_user.role == "Admin" %>
+            <%= link_to "Admin Dashboard", "/admin"%>
+            <%= link_to "See All Users", "/admin/users"%>
           <% end %>
       <% else %>
         <%= link_to "Login", "/login"%>
