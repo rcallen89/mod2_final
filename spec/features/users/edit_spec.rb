@@ -53,6 +53,7 @@ RSpec.describe "User Profile Edit Page", type: :feature do
       visit '/profile'
       click_on 'Change Password'
 
+      
       fill_in :Password, with: "password2"
       fill_in :user_password_confirmation, with: "password2"
 
