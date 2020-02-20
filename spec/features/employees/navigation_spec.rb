@@ -15,24 +15,17 @@ RSpec.describe "As a merchant employee", type: :feature do
       within 'nav' do
         click_link 'My Profile'
       end
-
       expect(current_path).to eq('/profile')
 
-      # within 'nav' do
-      #   click_link 'Logout'
-      # end
+      within 'nav' do
+        click_link 'Logout'
+      end
+      expect(current_path).to eq('/')
 
-      # expect(current_path).to eq('/profile')
-
-      expect(page).to have_link('Logout')
-
-      # within 'nav' do
-      #   click_link 'Merchant Dashboard'
-      # end
-      #
-      # expect(current_path).to eq('/merchant')
-
-      expect(page).to have_link('Merchant Dashboard')
+      within 'nav' do
+        click_link 'Merchant Dashboard'
+      end
+      expect(current_path).to eq('/merchant')
     end
   end
 end
