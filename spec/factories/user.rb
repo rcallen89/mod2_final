@@ -6,7 +6,7 @@ FactoryBot.define do
     state { "Denver" }
     zip { "80144" }
     role { 0 }
-    email { "test@example.com" }
+    email { "user@example.com" }
     password { "password" }
   end
 end

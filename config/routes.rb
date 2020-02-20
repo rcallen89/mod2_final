@@ -1,24 +1,28 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  
+  
   get "/", to: "welcome#index"
-  get "/login", to: "login#index"
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
   scope module: :visitors do
     get '/register', to: "users#new"
     post '/users', to: "users#create"
   end
 
-  scope module: :users do
-    get '/profile', to: 'users#show'
+  scope :profile, module: :users do
+    get '/', to: 'users#show'
   end
 
-  scope module: :employee do
-    get '/merchant', to: 'merchant#show'
+  namespace :merchant do
+    get '/', to: 'merchant#show'
   end
 
-  scope module: :admin do
-    get '/admin', to: 'admin#show'
+  namespace :admin do
+    get '/', to: 'admin#show'
   end
 
   # TO BE NAMESPACED

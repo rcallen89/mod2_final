@@ -1,4 +1,4 @@
-class Employee::BaseController < ApplicationController 
+class Merchant::BaseController < ApplicationController 
     before_action :require_employee
 
     def require_employee 
