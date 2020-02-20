@@ -14,6 +14,13 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    session.delete(:cart)
+    session.delete(:user_id)
+    flash[:notice] = "You have logged out!"
+    redirect_to '/'
+  end
+
   private
 
   def route_by_role(user)

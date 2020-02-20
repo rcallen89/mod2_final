@@ -4,8 +4,13 @@ RSpec.describe "As a user", type: :feature do
   describe "I see the same links as a visitor" do
     before :each do
       @user = create(:user)
+      
+      visit '/login'
 
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+      fill_in :email, with: @user.email
+      fill_in :password, with: @user.password
+
+      click_on "Log In"
 
     end
     it "plus the following links" do
@@ -18,14 +23,15 @@ RSpec.describe "As a user", type: :feature do
 
       expect(current_path).to eq('/profile')
 
-      # within 'nav' do
-      #   click_link 'Logout'
-      # end
+      within 'nav' do
+        click_link 'Logout'
+      end
 
-      # expect(current_path).to eq('/profile')
+      expect(current_path).to eq('/')
 
-      expect(page).to have_link('Logout')
+      expect(page).to have_link('Login')
     end
+
     it "I cannot see a link to login or register" do
 
       visit "/merchants"
@@ -33,6 +39,7 @@ RSpec.describe "As a user", type: :feature do
       expect(page).to_not have_link("Login")
       expect(page).to_not have_link("Register")
     end
+
     it "can see message saying user is logged in" do
 
       visit "/merchants"

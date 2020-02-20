@@ -51,5 +51,21 @@ RSpec.describe 'Login and Logout', type: :feature do
 
       expect(current_path).to eq("/admin")
     end
+
+    it 'can login successfully and then log out' do
+      visit "/login"
+
+      fill_in :email, with: @user.email
+      fill_in :password, with: @user.password
+
+      click_on "Log In"
+
+      expect(current_path).to eq("/profile")
+
+      click_on "Logout"
+
+      expect(current_path).to eq('/')
+      expect(page).to have_content("Cart: 0")
+    end
   end
 end

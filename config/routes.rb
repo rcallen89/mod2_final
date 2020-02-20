@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/", to: "welcome#index"
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
   scope module: :visitors do
     get '/register', to: "users#new"
