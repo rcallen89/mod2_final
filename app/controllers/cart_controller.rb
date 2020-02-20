@@ -1,4 +1,6 @@
 class CartController < ApplicationController
+  before_action :require_all_but_admin
+  
   def add_item
     item = Item.find(params[:item_id])
     cart.add_item(item.id.to_s)
@@ -19,6 +21,11 @@ class CartController < ApplicationController
     session[:cart].delete(params[:item_id])
     redirect_to '/cart'
   end
+
+  private 
+   def require_all_but_admin 
+        render file: "/public/404" if role == "Admin"
+   end
 
   # def increment_decrement
   #   if params[:increment_decrement] == "increment"
