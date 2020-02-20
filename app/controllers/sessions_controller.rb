@@ -7,10 +7,22 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id 
-      redirect_to '/profile'
+      route_by_role(user)
     else
       flash[:error] = "Invalid Login"
       render :new
+    end
+  end
+
+  private
+
+  def route_by_role(user)
+    if user.role == 'User'
+      redirect_to '/profile'
+    elsif user.role == 'MerchantEmployee'
+      redirect_to '/merchant'
+    else
+      redirect_to '/admin'
     end
   end
 

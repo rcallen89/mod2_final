@@ -30,26 +30,26 @@ RSpec.describe 'Login and Logout', type: :feature do
       expect(current_path).to eq("/profile")
     end
 
-    # it 'can enter correct email and password for merchant and log in' do
-    #   visit "/login"
+    it 'can enter correct email and password for merchant and log in' do
+      visit "/login"
 
-    #   fill_in :email, with: @employee.email
-    #   fill_in :password, with: @employee.password
+      fill_in :email, with: @employee.email
+      fill_in :password, with: @employee.password
 
-    #   click_on "Log In"
+      click_on "Log In"
 
-    #   expect(current_path).to eq("/merchant")
-    # end
+      expect(current_path).to eq("/merchant")
+    end
 
-    # it 'can enter correct email and password for admin and log in' do
-    #   visit "/login"
+    it 'can enter correct email and password for admin and log in' do
+      visit "/login"
 
-    #   fill_in :email, with: @admin.email
-    #   fill_in :password, with: @admin.password
+      fill_in :email, with: @admin.email
+      fill_in :password, with: @admin.password
 
-    #   click_on "Log In"
+      click_on "Log In"
 
-    #   expect(current_path).to eq("/admin")
-    # end
+      expect(current_path).to eq("/admin")
+    end
   end
 end
