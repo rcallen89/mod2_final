@@ -8,7 +8,7 @@ RSpec.describe 'User Profile Page', type: :feature do
   end
 
   context 'as a registered user' do
-    it 'can see all profile data expect password with link to edit' do
+    it 'can see all profile data expect password with link to edit profile and edit password' do
       visit '/profile'
 
       within "#user-info" do
@@ -22,6 +22,7 @@ RSpec.describe 'User Profile Page', type: :feature do
         expect(page).not_to have_content(@user.password)
 
         expect(page).to have_link("Edit Profile")
+        expect(page).to have_link("Change Password")
       end
     end
   end
