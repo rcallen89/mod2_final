@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   
   
+  get "/", to: "welcome#index"
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
 
@@ -15,9 +16,14 @@ Rails.application.routes.draw do
     get '/profile', to: 'users#show'
   end
 
+  namespace :merchant do
+    get '/', to: 'merchant#show'
+  end
 
-  
-  
+  namespace :admin do
+    get '/', to: 'admin#show'
+  end
+
   # TO BE NAMESPACED
   get "/merchants", to: "merchants#index"
   get "/merchants/new", to: "merchants#new"

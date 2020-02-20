@@ -10,6 +10,15 @@
 
   <body>
     <nav class = "topnav">
+      <% if current_user != nil %>
+        <%= "Logged in as #{current_user.name}" %>
+        <%= link_to "My Profile", "/profile"%>
+        <%= link_to "Logout", "/logout"%>
+      <% else %>
+        <%= link_to "Login", "/login"%>
+        <%= link_to "Register", "/register"%>
+      <% end %>
+      <%= link_to "Home Page", "/"%>
       <%= link_to "All Merchants", "/merchants"%>
       <%= link_to "All Items", "/items"%>
       <%= link_to "Cart: #{cart.total_items}", "/cart" %>
