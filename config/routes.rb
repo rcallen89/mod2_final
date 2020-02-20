@@ -13,8 +13,9 @@ Rails.application.routes.draw do
     post '/users', to: "users#create"
   end
 
-  scope :profile, module: :users do
-    get '/', to: 'users#show'
+  scope module: :users do
+    resource :profile, only: [:show, :edit, :update]
+    # get '/', to: 'users#index'
   end
 
   namespace :merchant do
