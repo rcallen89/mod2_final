@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  
-  
+
+
   get "/", to: "welcome#index"
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/', to: 'admin#show'
     get '/users', to: 'users#index'
+    get '/users/:id', to: 'users#show'
   end
 
   # TO BE NAMESPACED
