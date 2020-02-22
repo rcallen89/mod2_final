@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     get '/', to: 'admin#show'
     get '/users', to: 'users#index'
     get '/users/:id', to: 'users#show'
+    get '/merchants/:id', to: 'merchants#show'
   end
 
   # TO BE NAMESPACED
