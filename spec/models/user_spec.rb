@@ -13,6 +13,10 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of :password }
   end
 
+  describe 'relationships' do
+    it { should have_many :orders}
+  end
+
   describe 'role enum' do
     it 'should list proper roles for enum' do
       user_1 = User.create(name: "Benny",
