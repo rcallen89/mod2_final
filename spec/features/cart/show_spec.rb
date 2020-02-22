@@ -56,23 +56,16 @@ RSpec.describe 'Cart show' do
         visit '/cart'
 
         within "#cart-item-#{@tire.id}" do
-          expect(page).to have_link("Remove 1")
 
-          click_link("Remove 1")
+          click_link("Add Quantity")
+          click_link("Add Quantity")
 
-          expect(page).to have_content("11")
+          click_link("Remove Quantity")
 
-          click_link("Remove 1")
-          click_link("Remove 1")
-          click_link("Remove 1")
-          click_link("Remove 1")
-          click_link("Remove 1")
-          click_link("Remove 1")
-          click_link("Remove 1")
-          click_link("Remove 1")
-          click_link("Remove 1")
-          click_link("Remove 1")
-          click_link("Remove 1")
+          expect(page).to have_content("2")
+
+          click_link("Remove Quantity")
+          click_link("Remove Quantity")
         end
 
         expect(page).to_not have_content("Gatorskins")

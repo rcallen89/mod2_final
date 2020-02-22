@@ -39,4 +39,12 @@ class Cart
   def add_quantity(item_id)
     contents[item_id] += 1
   end
+
+  def subtract_quantity(item_id)
+    contents[item_id] -= 1
+  end
+
+  def quantity_zero?(item_id)
+    contents[item_id] == 0
+  end
 end
