@@ -65,7 +65,6 @@ RSpec.describe 'New Registration Page', type: :feature do
     expect(page).to_not have_content("Mary")
 
     expect(page).to have_content("Email has already been taken")
-
     expect(find_field('Name').value).to eq 'Mary'
     expect(find_field('Street address').value).to eq '2859 somthing st.'
     expect(find_field('City').value).to eq 'Boston'

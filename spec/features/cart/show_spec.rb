@@ -28,6 +28,33 @@ RSpec.describe 'Cart show' do
         expect(page).to have_content("Cart is currently empty")
       end
 
+      it "I can increment quantity of item" do
+        #THIS ONE!!!!!!!!!!!!!!!
+        #!!!!!!!!!!!!!!!!!!!!!!!\
+        #!!!!!!!!!!!!!!!!!!!!!!!
+        visit '/cart'
+
+        within "#cart-item-#{@tire.id}" do
+          expect(page).to have_link("Add Quantity")
+          click_link("Add Quantity")
+          click_link("Add Quantity")
+          click_link("Add Quantity")
+          click_link("Add Quantity")
+          click_link("Add Quantity")
+          click_link("Add Quantity")
+          click_link("Add Quantity")
+          click_link("Add Quantity")
+          click_link("Add Quantity")
+          click_link("Add Quantity")
+          click_link("Add Quantity")
+          click_link("Add Quantity")
+
+          expect(page).to have_content("12")
+        end
+
+        expect(page).to have_content("There are no more of this item left in stock")
+      end
+
       it 'I see all items Ive added to my cart' do
         visit '/cart'
 
