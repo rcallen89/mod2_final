@@ -55,6 +55,20 @@ RSpec.describe 'Cart show' do
 
         expect(page).to have_content("Total: $124")
       end
+
+    describe 'as a vistor' do
+      it 'there is no checkout button rather login and register links' do
+        visit '/cart'
+
+        expect(page).not_to have_content("Checkout")
+        expect(page).to have_content("Please Login or Register for Checking Out")
+        
+        within "#register-block" do
+          expect(page).to have_link("Login")
+          expect(page).to have_link("Register")
+        end
+      end
+    end
     end
   end
   describe "When I haven't added anything to my cart" do
