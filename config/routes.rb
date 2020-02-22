@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  
-  
+
+
   get "/", to: "welcome#index"
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -61,6 +61,7 @@ Rails.application.routes.draw do
 
   post "/cart/:item_id", to: "cart#add_item"
   get "/cart", to: "cart#show"
+  patch "/cart/:item_id", to: "cart#increment_decrement"
   delete "/cart", to: "cart#empty"
   delete "/cart/:item_id", to: "cart#remove_item"
 
