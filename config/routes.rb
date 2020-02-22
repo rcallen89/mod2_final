@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/', to: 'admin#show'
     get '/users', to: 'users#index'
+    get '/users/:id', to: 'users#show'
   end
 
   # TO BE NAMESPACED
