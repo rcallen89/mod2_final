@@ -29,9 +29,6 @@ RSpec.describe 'Cart show' do
       end
 
       it "I can increment quantity of item" do
-        #THIS ONE!!!!!!!!!!!!!!!
-        #!!!!!!!!!!!!!!!!!!!!!!!\
-        #!!!!!!!!!!!!!!!!!!!!!!!
         visit '/cart'
 
         within "#cart-item-#{@tire.id}" do
@@ -53,6 +50,33 @@ RSpec.describe 'Cart show' do
         end
 
         expect(page).to have_content("There are no more of this item left in stock")
+      end
+
+      it "can decrement the quantity of an item from the cart" do
+        visit '/cart'
+
+        within "#cart-item-#{@tire.id}" do
+          expect(page).to have_link("Remove 1")
+
+          click_link("Remove 1")
+
+          expect(page).to have_content("11")
+
+          click_link("Remove 1")
+          click_link("Remove 1")
+          click_link("Remove 1")
+          click_link("Remove 1")
+          click_link("Remove 1")
+          click_link("Remove 1")
+          click_link("Remove 1")
+          click_link("Remove 1")
+          click_link("Remove 1")
+          click_link("Remove 1")
+          click_link("Remove 1")
+        end
+
+        expect(page).to_not have_content("Gatorskins")
+        expect(page).to have_content("Lined Paper")
       end
 
       it 'I see all items Ive added to my cart' do
