@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     get '/profile/edit', to: 'users#edit'
     get '/profile/edit/password', to: 'users#change_password'
     patch '/users', to: 'users#update'
+
+    scope :profile do
+      resources :orders, only: [:index, :show]
+    end
   end
 
   namespace :merchant do
