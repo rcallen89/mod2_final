@@ -8,7 +8,7 @@ RSpec.describe("Order Fullfillment") do
     mike = Merchant.create(name: "Mike's Print Shop", address: '123 Paper Rd.', city: 'Denver', state: 'CO', zip: 80203)
     meg = Merchant.create(name: "Meg's Bike Shop", address: '123 Bike Rd.', city: 'Denver', state: 'CO', zip: 80203)
 
-    MerchantEmployee.create!(user: user, merchant: mike)
+    mike.users << user
 
     tire = meg.items.create(name: "Gatorskins", description: "They'll never pop!", price: 2, image: "https://www.rei.com/media/4e1f5b05-27ef-4267-bb9a-14e35935f218?size=784x588", inventory: 12)
     paper = mike.items.create(name: "Lined Paper", description: "Great for writing on!", price: 20, image: "https://cdn.vertex42.com/WordTemplates/images/printable-lined-paper-wide-ruled.png", inventory: 3)
@@ -17,12 +17,17 @@ RSpec.describe("Order Fullfillment") do
 
     order = Order.create!(name: "Kelly", address: "2233 Nothing st", city: "Nowhere", state: "NO", zip: "12345")
 
-    order.items << tire
-    order.items << paper
-    order.items << pencil
-    order.items << highlighter
-    order.items << highlighter
-    order.items << highlighter
+    ItemOrder.create(price: 6, quantity: 7, order: order, item: tire)
+    ItemOrder.create(price: 2, quantity: 2, order: order, item: paper)
+    ItemOrder.create(price: 1, quantity: 4, order: order, item: pencil)
+    ItemOrder.create(price: 4, quantity: 3, order: order, item: highlighter)
+
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    
+    visit "/merchant"
+
+    click_on(order.id)
 
     visit "/merchant/orders/#{order.id}"
 

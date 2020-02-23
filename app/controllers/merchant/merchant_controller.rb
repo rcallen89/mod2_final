@@ -1,6 +1,6 @@
-class Merchant::MerchantController < Merchant::BaseController 
+class Merchant::MerchantController < Merchant::BaseController
 
-  def show 
+  def show
+    @orders = Order.all
   end
-
 end

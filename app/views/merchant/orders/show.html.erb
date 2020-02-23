@@ -1,0 +1,14 @@
+<%@order.item_orders.each do |item_order|%>
+  <section id='item-<%= item_order.item_id.id %>'>
+  <%binding.pry%>
+  <%=item_order.id%>
+  <%=item.name%>
+  <%=item.description%>
+  <%=item.price%>
+  <%=item.image%>
+  <%=item.inventory%>
+  <%if current_user.merchants.first.id == item.merchant.id%>
+
+  <%end%>
+  </section>
+<%end%>
