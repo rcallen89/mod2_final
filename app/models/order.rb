@@ -22,4 +22,12 @@ class Order <ApplicationRecord
   def updated
     updated_at.to_date
   end
+
+  def item_table
+    items.joins(:item_orders).select('items.*, item_orders.quantity as qty').distinct
+  end
+
+  def count_all_items
+    item_orders.sum(:quantity)
+  end
 end
