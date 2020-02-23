@@ -24,7 +24,7 @@ RSpec.describe("Order Fullfillment") do
 
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    
+
     visit "/merchant"
 
     click_on(order.id)
@@ -32,37 +32,39 @@ RSpec.describe("Order Fullfillment") do
     visit "/merchant/orders/#{order.id}"
 
     #someone elses shop
-    within "#item-#{tire.id}" do
+    within "#item_order-#{tire.id}" do
       expect(page).to_not have_link("Fulfill Item")
     end
 
     #already fulfilled
-    within "#item-#{pencil.id}" do
+    within "#item_order-#{pencil.id}" do
       expect(page).to_not have_link("Fulfill Item")
       expect(page).to have_content('Fulfilled')
     end
 
     # ordered more than current inventory
-    within "#item-#{highlighter.id}" do
+    within "#item_order-#{highlighter.id}" do
       expect(page).to_not have_link("Fulfill Item")
     end
 
     #can be fulfilled
-    within "#item-#{paper.id}" do
-      click_on("Fulfill Item")
+    within "#item_order-#{paper.id}" do
+      click_on("Fulfill")
     end
 
     expect(current_path).to eq("/merchant/orders/#{order.id}")
 
     #order is now fulfilled
-    within "#item-#{paper.id}" do
+    within "#item_order-#{paper.id}" do
       expect(page).to_not have_link("Fulfill Item")
       expect(page).to have_content('Fulfilled')
     end
 
     expect(page).to have_content("#{paper.name} on order #{order.id} is now fulfilled")
 
-    expect(pencil.inventory).to eq(1)
+    visit "/items/#{paper.id}"
+
+    expect(page).to have_content("Inventory: 1")
   end
 
 # #   it "changes order status to packaged when all orders have been fulfilled" do

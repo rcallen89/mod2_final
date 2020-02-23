@@ -3,7 +3,12 @@ require 'rails_helper'
 RSpec.describe 'Login and Logout', type: :feature do
   before :each do
     @user = create(:user)
+
+    @mike = Merchant.create(name: "Mike's Print Shop", address: '123 Paper Rd.', city: 'Denver', state: 'CO', zip: 80203)
+
     @employee = create(:user, role: 1, email: "employee@email.com")
+    @mike.users << @employee
+
     @admin = create(:user, role: 2, email: "admin@email.com")
   end
   context 'as a visitor' do

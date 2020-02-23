@@ -7,4 +7,12 @@ class ItemOrder <ApplicationRecord
   def subtotal
     price * quantity
   end
+
+  def is_mine?(merchant_id)
+    Item.find(item_id).merchant_id == merchant_id
+  end
+
+  def enough_stock?
+    Item.find(item_id).inventory >= quantity
+  end
 end

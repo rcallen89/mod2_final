@@ -5,6 +5,10 @@ RSpec.describe "As a merchant employee", type: :feature do
     before :each do
       @user = create(:user, role: 1)
 
+      @mike = Merchant.create(name: "Mike's Print Shop", address: '123 Paper Rd.', city: 'Denver', state: 'CO', zip: 80203)
+
+      @mike.users << @user
+
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     end
 
