@@ -6,9 +6,9 @@
     Status:
     <%if item_order.is_mine?(current_user.merchants.first.id) && !item_order.fulfilled? && item_order.enough_stock?%>
       <%=link_to "Fulfill", "/item_orders/#{item_order.id}", method: :patch%><br>
-    <%elsif                 item_order.is_mine?(current_user.merchants.first.id) && item_order.fulfilled?%>
+    <%elsif item_order.is_mine?(current_user.merchants.first.id) && item_order.fulfilled?%>
         Fulfilled
-    <%else%>
+    <%elsif !item_order.is_mine?(current_user.merchants.first.id)%>
       None of your business
     <%end%><br><br><br>
   </section>
