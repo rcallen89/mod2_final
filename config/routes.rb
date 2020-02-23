@@ -19,16 +19,23 @@ Rails.application.routes.draw do
     get '/profile/edit', to: 'users#edit'
     get '/profile/edit/password', to: 'users#change_password'
     patch '/users', to: 'users#update'
+
+    scope :profile do
+      resources :orders, only: [:index, :show]
+    end
   end
 
   namespace :merchant do
     get '/', to: 'merchant#show'
     resources :orders, only: [:show]
+    resources :items, only: [:index]
   end
 
   namespace :admin do
     get '/', to: 'admin#show'
     get '/users', to: 'users#index'
+    get '/users/:id', to: 'users#show'
+    get '/merchants/:id', to: 'merchants#show'
   end
 
   # TO BE NAMESPACED

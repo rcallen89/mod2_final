@@ -25,5 +25,21 @@ RSpec.describe 'User Profile Page', type: :feature do
         expect(page).to have_link("Change Password")
       end
     end
+
+    it 'if user has no orders wont see a link to My Orders' do
+      visit '/profile'
+
+      expect(page).not_to have_link("My Orders")
+    end
+
+    it 'if user has orders they will see a link to my orders' do
+      @user.orders.create!(name: 'Meg', address: '123 Stang St', city: 'Hershey', state: 'PA', zip: 80218)
+      
+      visit '/profile'
+
+      click_on "My Orders"
+
+      expect(current_path).to eq('/profile/orders')
+    end
   end
 end

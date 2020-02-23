@@ -1,0 +1,45 @@
+<h2>My Orders</h2>
+
+<table class = "user-orders">
+  <tr>
+    <th>Order ID</th>
+    <th>Number of Items</th>
+    <th>Total</th>
+    <th>Status</th>
+    <th>Created On</th>
+    <th>Updated On</th>
+    <th>Options</th>
+  </tr>
+  <% current_user.orders.each do |order| %>
+    <section id="order-<%= order.id %>">
+    <tr>
+      <td>
+      <%= link_to "#{order.id}", order_path("#{order.id}") %>
+      </td>
+
+      <td>
+      <%= order.total_items %>
+      </td>
+
+      <td>
+      <%= order.grandtotal %>
+      </td>
+
+      <td>
+      <%= order.status %>
+      </td>
+
+      <td>
+      <%= order.creation %>
+      </td>
+
+      <td>
+      <%= order.updated %>
+      </td>
+
+      <td>
+      TO DO
+      </td>
+    </section>
+  <% end %>
+</table>
