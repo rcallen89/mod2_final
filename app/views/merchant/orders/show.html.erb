@@ -1,10 +1,15 @@
 <%@order.item_orders.each do |item_order|%>
   <section id='item_order-<%=item_order.item_id %>'>
-    <%=item_order.item_id%>
+    Item Id: <%=item_order.item_id%><br>
+    Item Name: <%=item_order.item.name%><br>
+    From: <%=item_order.item.merchant.name%><br>
+    Status:
     <%if item_order.is_mine?(current_user.merchants.first.id) && !item_order.fulfilled? && item_order.enough_stock?%>
-      <%=link_to "Fulfill", "/item_orders/#{item_order.id}", method: :patch%>
-    <%else%>
+      <%=link_to "Fulfill", "/item_orders/#{item_order.id}", method: :patch%><br>
+    <%elsif                 item_order.is_mine?(current_user.merchants.first.id) && item_order.fulfilled?%>
         Fulfilled
-    <%end%>
+    <%else%>
+      None of your business
+    <%end%><br><br><br>
   </section>
 <%end%>
