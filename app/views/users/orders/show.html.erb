@@ -1,0 +1,43 @@
+<h2>Order <%= @order.id %></h2>
+
+<p>Created On: <%= @order.creation %> </p>
+<p>Last Updated On: <%= @order.updated %> </p>
+<p>Status: <%= @order.status %> </p>
+<p>Total Items: <%= @order.count_all_items %> </p>
+<p>Order Total Cost: <%= number_to_currency(@order.grandtotal) %> </p>
+
+<table class = "cart-items">
+  <tr>
+    <th>Item</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Quantity</th>
+    <th>Subtotal</th>
+  </tr>
+
+  <% @order.item_table.each do |item| %>
+    <tr id= "item-<%=item.id%>">
+      <td>
+        <img align = "center" id="cart-image" src= <%= item.image %>>
+        <%=link_to item.name, "/items/#{item.id}" %>
+      </td>
+
+      <td>
+        <%=number_to_currency(item.price)%>
+      </td>
+
+      <td>
+        <%= item.description%>
+      </td>
+
+      <td>
+        <p><%= item[:qty] %></p>
+      </td>
+
+      <td>
+        <%=number_to_currency(item.price * item[:qty]) %>
+      </td>
+
+    </tr>
+  <% end %>
+</table>

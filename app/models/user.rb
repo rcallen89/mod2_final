@@ -7,4 +7,8 @@ class User < ApplicationRecord
 
   enum role: %w( User MerchantEmployee Admin )
 
+  def has_orders?
+    !orders.blank?
+  end
+
 end

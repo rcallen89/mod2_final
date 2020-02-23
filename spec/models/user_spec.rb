@@ -17,6 +17,21 @@ RSpec.describe User, type: :model do
     it { should have_many :orders}
   end
 
+  describe "has_orders?" do
+    it "should false if there are no orders for this user" do
+      user = create(:user)
+
+      expect(user.has_orders?).to eq(false)
+    end
+    
+    it 'should true if there are order for this user' do
+      item_orders = create(:item_order)
+
+      expect(User.first.has_orders?).to eq(true)
+    end
+  end
+
+
   describe 'role enum' do
     it 'should list proper roles for enum' do
       user_1 = User.create(name: "Benny",
