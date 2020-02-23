@@ -1,1 +1,6 @@
+<p>Order Numbers</p>
+<%@orders.each do |order|%>
+  <p><%=link_to "#{order.id}", "/merchant/orders/#{order.id}" %></p>
+<%end%>
+
 <%= link_to "My Items", merchant_items_path %>

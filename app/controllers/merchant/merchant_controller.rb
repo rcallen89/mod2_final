@@ -1,6 +1,6 @@
-class Merchant::MerchantController < Merchant::BaseController 
+class Merchant::MerchantController < Merchant::BaseController
 
-  def show 
+  def show
+      @orders = current_user.merchants.first.orders.distinct
   end
-
 end

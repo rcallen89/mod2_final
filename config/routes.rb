@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   namespace :merchant do
     get '/', to: 'merchant#show'
+    resources :orders, only: [:show]
     resources :items, only: [:index]
   end
 
@@ -71,4 +72,6 @@ Rails.application.routes.draw do
   get "/orders/new", to: "orders#new"
   post "/orders", to: "orders#create"
   get "/orders/:id", to: "orders#show"
+
+  resources :item_orders, only: [:update]
 end

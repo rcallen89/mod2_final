@@ -13,9 +13,12 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of :password }
   end
 
-  describe 'relationships' do
-    it { should have_many :orders}
+  describe "relationships" do
+    it {should have_many :merchant_employees}
+    it {should have_many :orders}
+    it {should have_many(:merchants).through(:merchant_employees)}
   end
+
 
   describe "has_orders?" do
     it "should false if there are no orders for this user" do
@@ -23,7 +26,7 @@ RSpec.describe User, type: :model do
 
       expect(user.has_orders?).to eq(false)
     end
-    
+
     it 'should true if there are order for this user' do
       item_orders = create(:item_order)
 
