@@ -6,7 +6,7 @@ RSpec.describe 'User Order Show Page', type: :feature do
     @bone = create(:item)
     @bone2 = create(:item, name: "bone2")
     @bone3 = create(:item, name: "bone3")
-    @order1 = @user.orders.create(name: 'Meg', address: '123 Stang St', city: 'Hershey', state: 'PA', zip: 80218, status: 0, user: @user)
+    @order1 = @user.orders.create(name: 'Meg', address: '123 Stang St', city: 'Hershey', state: 'PA', zip: 80218, status: 1, user: @user)
     @order1.item_orders.create!(item: @bone, price: @bone.price, quantity: 2)
     @order1.item_orders.create!(item: @bone2, price: @bone2.price, quantity: 4)
 
