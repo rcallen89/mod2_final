@@ -69,6 +69,35 @@ RSpec.describe("Order Fullfillment") do
     expect(page).to have_content("Inventory: 1")
   end
 
+  it "tells the user why an order cannot be fulfilled" do
+    user = create(:user)
+    user.role = 1
+
+    mike = Merchant.create(name: "Mike's Print Shop", address: '123 Paper Rd.', city: 'Denver', state: 'CO', zip: 80203)
+
+    mike.users << user
+
+    highlighter = mike.items.create(name: "Pink Highlighter", description: "all the color!", price: 1, image: "http://t0.gstatic.com/images?q=tbn%3AANd9GcTJXpxn5ri-bUeoz3mQ9On7c2PfvL3Ku-ilDUAJ0gv4_0HkUFJBQuriTsUw2yxofI0bSGLbXN4O&usqp=CAc", inventory: 2)
+
+    order = Order.create!(name: "Kelly", address: "2233 Nothing st", city: "Nowhere", state: "NO", zip: "12345", user: user)
+
+    ItemOrder.create(price: 4, quantity: 3, order: order, item: highlighter)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit "/merchant"
+
+    click_on(order.id)
+
+    expect(current_path).to eq("/merchant/orders/#{order.id}")
+
+    # ordered more than current inventory
+    within "#item_order-#{highlighter.id}" do
+      expect(page).to_not have_link("Fulfill Item")
+      expect(page).to have_content("Item cannot be fulfilled")
+    end
+  end
+
 # #   it "changes order status to packaged when all orders have been fulfilled" do
     # @mike = Merchant.create(name: "Mike's Print Shop", address: '123 Paper Rd.', city: 'Denver', state: 'CO', zip: 80203)
     # @meg = Merchant.create(name: "Meg's Bike Shop", address: '123 Bike Rd.', city: 'Denver', state: 'CO', zip: 80203)
