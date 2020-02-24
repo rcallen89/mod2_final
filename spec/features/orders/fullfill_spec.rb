@@ -127,7 +127,7 @@ RSpec.describe("Order Fullfillment") do
 
     expect(page).to have_content("Order Status: Pending")
 
-    item_order4.fulfilled? = true
+    # item_order4.fulfilled? = true
 
     expect(page).to have_content("Order Status: Packaged")
   end
