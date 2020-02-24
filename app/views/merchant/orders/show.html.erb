@@ -8,6 +8,8 @@
       <%=link_to "Fulfill", "/item_orders/#{item_order.id}", method: :patch%><br>
     <%elsif item_order.is_mine?(current_user.merchants.first.id) && item_order.fulfilled?%>
         Fulfilled
+    <%elsif item_order.is_mine?(current_user.merchants.first.id) && !item_order.enough_stock?%>
+        Item cannot be fulfilled
     <%elsif !item_order.is_mine?(current_user.merchants.first.id)%>
       None of your business
     <%end%><br><br><br>
