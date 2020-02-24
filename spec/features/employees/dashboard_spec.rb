@@ -17,4 +17,16 @@ RSpec.describe "As an merchant employee,", type: :feature do
             expect(current_path).to eq(merchant_items_path)
         end
     end
+
+    describe "when I visit my merchant dashboard" do
+        it "then I see the name and full address of the merchant I work for. " do
+            visit "/merchant"
+            save_and_open_page
+            expect(page).to have_content("Brian's Bike Shop")
+            expect(page).to have_content("123 Bike Rd.")
+            expect(page).to have_content("Richmond")
+            expect(page).to have_content("VA")
+            expect(page).to have_content("80203")    
+        end
+    end
 end
