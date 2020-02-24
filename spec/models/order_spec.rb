@@ -68,5 +68,12 @@ describe Order, type: :model do
       expect(@order_1.item_table.first[:qty]).to eq(2)
 
     end
+
+    it 'check_status' do
+        expect(@order_1.check_status).to eq("Pending")
+        expect(@order_2.check_status).to eq("Pending")
+        expect(@order_3.check_status).to eq("Packaged")
+        expect(@order_4.check_status).to eq("Packaged")
+    end
   end
 end

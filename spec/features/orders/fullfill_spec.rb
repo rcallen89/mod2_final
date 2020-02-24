@@ -133,9 +133,15 @@ RSpec.describe("Order Fullfillment") do
     expect(page).to have_content("Order Status: Pending")
 
     item_order1.status = 1
+    item_order1.save
     item_order2.status = 1
+    item_order2.save
     item_order3.status = 1
+    item_order3.save
     item_order4.status = 1
+    item_order4.save
+
+    visit "/merchant/orders/#{order.id}"
 
     expect(page).to have_content("Order Status: Packaged")
   end

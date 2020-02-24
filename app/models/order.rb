@@ -34,4 +34,12 @@ class Order <ApplicationRecord
     end
   end
 
+  def check_status
+    if item_orders.where('status = 0').length == 0
+      self.status = 1
+    else
+      self.status = 0
+    end
+    self.status
+  end
 end
