@@ -1,4 +1,4 @@
-<p>Order Status: <%=@order.check_status%></p>
+<p>Order Status: <%=@order.current_status%></p>
 
 <%@order.item_orders.each do |item_order|%>
   <section id='item_order-<%=item_order.item_id %>'>
