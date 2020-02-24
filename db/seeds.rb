@@ -52,4 +52,3 @@ ItemOrder.create(price: 2, quantity: 3, order: order3, item: tire)
 
 ItemOrder.create(price: 6, quantity: 5, order: order4, item: pull_toy)
 ItemOrder.create(price: 2, quantity: 4, order: order4, item: dog_bone)
-
