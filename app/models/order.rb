@@ -30,7 +30,7 @@ class Order <ApplicationRecord
 
   def cancel_items
     item_orders.each do |item_order|
-      item_order.item.inventory += item_order.quantity if item_order.fulfilled?
+      item_order.item.inventory += item_order.quantity if item_order.status = "Fulfilled"
     end
   end
 

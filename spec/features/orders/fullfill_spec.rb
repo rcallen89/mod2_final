@@ -88,7 +88,7 @@ RSpec.describe("Order Fullfillment") do
 
     visit "/merchant"
 
-    click_on(order.id)
+    click_on("#{order.id}")
 
     expect(current_path).to eq("/merchant/orders/#{order.id}")
 
