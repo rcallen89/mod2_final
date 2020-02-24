@@ -1,3 +1,11 @@
+<p>Merchant Employee Information</br>
+  <%= current_user.merchants.first.name %></br>
+  <%= current_user.merchants.first.address %></br>
+  <%= current_user.merchants.first.city %></br>
+  <%= current_user.merchants.first.state %></br>
+  <%= current_user.merchants.first.zip %></br>
+</p>
+
 <p>Order Numbers</p>
 <%@orders.each do |order|%>
   <p><%=link_to "#{order.id}", "/merchant/orders/#{order.id}" %></p>
