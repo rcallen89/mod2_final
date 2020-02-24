@@ -20,7 +20,7 @@ RSpec.describe("Order Fullfillment") do
 
     ItemOrder.create(price: 6, quantity: 7, order: order, item: tire)
     ItemOrder.create(price: 2, quantity: 2, order: order, item: paper)
-    ItemOrder.create(price: 1, quantity: 2, order: order, item: pencil, fulfilled?: true)
+    ItemOrder.create(price: 1, quantity: 2, order: order, item: pencil, status: 1)
     ItemOrder.create(price: 4, quantity: 3, order: order, item: highlighter)
 
 
@@ -28,7 +28,8 @@ RSpec.describe("Order Fullfillment") do
 
     visit "/merchant"
 
-    click_on(order.id)
+    ###CHANGE THIS
+    click_on("#{order.id}")
 
     visit "/merchant/orders/#{order.id}"
 
@@ -87,7 +88,11 @@ RSpec.describe("Order Fullfillment") do
 
     visit "/merchant"
 
+<<<<<<< HEAD
     click_on(order.id)
+=======
+    click_on("#{order.id}")
+>>>>>>> 1f308f60d1365864e0aa99094da87d8bfe7741cf
 
     expect(current_path).to eq("/merchant/orders/#{order.id}")
 
@@ -97,6 +102,7 @@ RSpec.describe("Order Fullfillment") do
       expect(page).to have_content("Item cannot be fulfilled")
     end
   end
+<<<<<<< HEAD
 
   it "changes order_items status to packaged when all items have been fulfilled" do
     user = create(:user)
@@ -131,4 +137,6 @@ RSpec.describe("Order Fullfillment") do
 
     expect(page).to have_content("Order Status: Packaged")
   end
+=======
+>>>>>>> 1f308f60d1365864e0aa99094da87d8bfe7741cf
 end

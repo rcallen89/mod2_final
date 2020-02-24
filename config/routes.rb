@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     patch '/users', to: 'users#update'
 
     scope :profile do
-      resources :orders, only: [:index, :show]
+      resources :orders, only: [:index, :show, :update]
     end
   end
 

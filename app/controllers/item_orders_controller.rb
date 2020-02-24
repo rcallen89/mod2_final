@@ -1,7 +1,7 @@
 class ItemOrdersController<ApplicationController
   def update
     item_order = ItemOrder.find(params[:id])
-    item_order.toggle(:fulfilled?)
+    item_order.status = 1
     item_order.item.inventory -= item_order.quantity
     item_order.item.save
     item_order.save
