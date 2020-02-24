@@ -20,7 +20,7 @@ RSpec.describe("Order Fullfillment") do
 
     ItemOrder.create(price: 6, quantity: 7, order: order, item: tire)
     ItemOrder.create(price: 2, quantity: 2, order: order, item: paper)
-    ItemOrder.create(price: 1, quantity: 2, order: order, item: pencil, fulfilled?: true)
+    ItemOrder.create(price: 1, quantity: 2, order: order, item: pencil, status: 1)
     ItemOrder.create(price: 4, quantity: 3, order: order, item: highlighter)
 
 
