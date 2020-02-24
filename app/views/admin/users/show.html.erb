@@ -1,25 +1,25 @@
-<h2>Welcome to <%= "#{@user.name}" %>'s Profile</h2>
+<h2>Welcome to <%= "#{@user_to_view.name}" %>'s Profile</h2>
 
-<section id="user-info">
+<section id="user_to_view-info">
   <table>
     <tr>
       <td>Email:</td>
-      <td><%= @user.email %></td>
+      <td><%= @user_to_view.email %></td>
     </tr>
 
     <tr>
       <td>Name:</td>
-      <td><%= @user.name %></td>
+      <td><%= @user_to_view.name %></td>
     </tr>
 
     <tr>
       <td>Address:</td>
-      <td><%= @user.street_address %>, <%= @user.city %> <%= @user.state %>, <%= @user.zip %></td>
+      <td><%= @user_to_view.street_address %>, <%= @user_to_view.city %> <%= @user_to_view.state %>, <%= @user_to_view.zip %></td>
     </tr>
 
     <tr>
       <td>Account Level:</td>
-      <td><%= @user.role %></td>
+      <td><%= @user_to_view.role %></td>
     </tr>
   </table>
   <br>

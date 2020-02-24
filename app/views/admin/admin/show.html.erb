@@ -12,7 +12,7 @@
     <section id="order-<%= order.id %>">
     <tr>
       <td>
-      <%= link_to "#{order.user.name}", admin_users_path("#{order.user.id}") %>
+      <%= link_to "#{order.user.name}", "/admin/users/#{order.user.id}" %>
       </td>
 
       <td>
