@@ -13,7 +13,7 @@ class Order <ApplicationRecord
   end
 
   def total_items
-    item_orders.count
+    item_orders.sum(:quantity)
   end
 
   def creation
@@ -28,7 +28,10 @@ class Order <ApplicationRecord
     items.joins(:item_orders).select('items.*, item_orders.quantity as qty').distinct
   end
 
-  def count_all_items
-    item_orders.sum(:quantity)
+  def cancel_items
+    item_orders.each do |item_order|
+      item_order.item.inventory += item_order.quantity if item_order.status = "Fulfilled"
+    end
   end
+
 end

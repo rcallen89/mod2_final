@@ -3,7 +3,7 @@
 <p>Created On: <%= @order.creation %> </p>
 <p>Last Updated On: <%= @order.updated %> </p>
 <p>Status: <%= @order.status %> </p>
-<p>Total Items: <%= @order.count_all_items %> </p>
+<p>Total Items: <%= @order.total_items %> </p>
 <p>Order Total Cost: <%= number_to_currency(@order.grandtotal) %> </p>
 
 <table class = "cart-items">
@@ -41,3 +41,6 @@
     </tr>
   <% end %>
 </table>
+<% if @order.status != "Cancelled" %>
+    <%= link_to 'Cancel Order', order_path, method: :patch %>
+<% end %>

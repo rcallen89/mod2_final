@@ -53,5 +53,19 @@ RSpec.describe "Items Index Page" do
 
       expect(page).to_not have_content(@dog_bone.name)
     end
+
+    it "has a link embedded in the item image." do 
+      visit "/items"
+
+      within "#item-#{@pull_toy.id}" do
+        find(:xpath, "//a/img[@alt='Tug toy dog pull 9010 2 800x800']/..").click
+        expect(current_path).to eq("/items/#{@pull_toy.id}")
+      end
+    end 
   end
 end
+
+# find(:xpath, “//a/img[@alt=‘Tug toy dog pull 9010 2 800x800’]/..“).click
+# find("img[src*='#{@pull_toy.image}']").click
+# expect(page).to have_css("img[src*='#{@pull_toy.image}']")
+# expect(page).to have_link("img[src*='#{@pull_toy.image}']")

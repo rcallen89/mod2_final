@@ -52,7 +52,7 @@ describe Order, type: :model do
     end
 
     it 'total_items' do
-      expect(@order_1.total_items).to eq(3)
+      expect(@order_1.total_items).to eq(8)
     end
 
     it 'creation' do
@@ -63,8 +63,10 @@ describe Order, type: :model do
       expect(@order_1.updated).to eq(Date.today)
     end
 
-    it 'count_all_items' do
-      expect(@order_1.count_all_items).to eq(8)
+    it 'item_table' do
+      expect(@order_1.item_table).to eq([@tire, @pull_toy, @pull_toy2])
+      expect(@order_1.item_table.first[:qty]).to eq(2)
+
     end
   end
 end
