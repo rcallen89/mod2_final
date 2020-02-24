@@ -66,6 +66,22 @@ describe Order, type: :model do
     it 'item_table' do
       expect(@order_1.item_table).to eq([@tire, @pull_toy, @pull_toy2])
       expect(@order_1.item_table.first[:qty]).to eq(2)
+    end
+
+    it 'current_status' do
+      order = Order.create!(name: 'Meg', address: '123 Stang Ave', city: 'Hershey', state: 'PA', zip: 17033, status: 1, user: @user)
+      item1 = order.item_orders.create!(item: @tire, price: @tire.price, quantity: 2)
+      item2 =order.item_orders.create!(item: @pull_toy, price: @pull_toy.price, quantity: 3)
+
+      expect(order.current_status).to eq("Pending")
+
+      item1.update(status: 1)
+
+      expect(order.current_status).to eq("Pending")
+
+      item2.update(status: 1)
+
+      expect(order.current_status).to eq("Packaged")
 
     end
   end

@@ -24,11 +24,13 @@
       </td>
 
       <td>
-      <%= order.status %>
+      <%= order.current_status %>
       </td>
 
       <td>
-      TO DO
+        <% if order.current_status == "Packaged" %>
+          <%= link_to 'Ship Order', admin_order_path(order.id), method: :patch %>
+        <% end %>
       </td>
     </section>
   <% end %>
