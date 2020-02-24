@@ -2,7 +2,7 @@
 
 <p>Created On: <%= @order.creation %> </p>
 <p>Last Updated On: <%= @order.updated %> </p>
-<p>Status: <%= @order.status %> </p>
+<p>Status: <%= @order.current_status %> </p>
 <p>Total Items: <%= @order.total_items %> </p>
 <p>Order Total Cost: <%= number_to_currency(@order.grandtotal) %> </p>
 
@@ -41,6 +41,6 @@
     </tr>
   <% end %>
 </table>
-<% if @order.status != "Cancelled" %>
+<% if @order.status == "Pending" || @order.status == "Packaged" %>
     <%= link_to 'Cancel Order', order_path, method: :patch %>
 <% end %>

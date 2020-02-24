@@ -43,8 +43,8 @@ ItemOrder.create(price: 6, quantity: 7, order: order, item: pull_toy)
 ItemOrder.create(price: 2, quantity: 2, order: order, item: dog_bone)
 ItemOrder.create(price: 2, quantity: 2, order: order, item: tire)
 
-ItemOrder.create(price: 6, quantity: 3, order: order2, item: pull_toy)
-ItemOrder.create(price: 2, quantity: 9, order: order2, item: tire)
+ItemOrder.create(price: 6, quantity: 3, order: order2, item: pull_toy, status: 1)
+ItemOrder.create(price: 2, quantity: 9, order: order2, item: tire, status: 1)
 
 ItemOrder.create(price: 6, quantity: 1, order: order3, item: pull_toy)
 ItemOrder.create(price: 2, quantity: 20, order: order3, item: dog_bone)

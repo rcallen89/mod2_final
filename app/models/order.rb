@@ -34,4 +34,11 @@ class Order <ApplicationRecord
     end
   end
 
+  def current_status
+    if self.status == "Pending"
+      self.update(status: 0) if item_orders.select(:status).distinct.pluck(:status) == ["Fulfilled"]
+    end
+    self.status
+  end
+
 end
