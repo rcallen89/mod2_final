@@ -41,8 +41,8 @@ describe Order, type: :model do
     end
 
     it 'status is controlled by enum' do
-      expect(@order_1.status).to eq("Pending")
-      expect(@order_2.status).to eq("Packaged")
+      expect(@order_2.status).to eq("Pending")
+      expect(@order_1.status).to eq("Packaged")
       expect(@order_3.status).to eq("Shipped")
       expect(@order_4.status).to eq("Cancelled")
     end
