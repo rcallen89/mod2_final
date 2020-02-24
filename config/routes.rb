@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     get '/users', to: 'users#index'
     get '/users/:id', to: 'users#show'
     get '/merchants/:id', to: 'merchants#show'
+    resources :orders, only: [:update]
   end
 
   # TO BE NAMESPACED

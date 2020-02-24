@@ -6,7 +6,7 @@ class Order <ApplicationRecord
   has_many :items, through: :item_orders
   has_many :merchants, through: :items
 
-  enum status: %w( Pending Packaged Shipped Cancelled )
+  enum status: %w( Packaged Pending Shipped Cancelled )
 
   def grandtotal
     item_orders.sum('price * quantity')
@@ -34,12 +34,11 @@ class Order <ApplicationRecord
     end
   end
 
-  def check_status
-    if item_orders.where('status = 0').length == 0
-      self.status = 1
-    else
-      self.status = 0
+  def current_status
+    if self.status == "Pending"
+      self.update(status: 0) if item_orders.select(:status).distinct.pluck(:status) == ["Fulfilled"]
     end
     self.status
   end
+
 end
