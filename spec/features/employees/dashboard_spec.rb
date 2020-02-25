@@ -42,7 +42,7 @@ RSpec.describe "As an merchant employee,", type: :feature do
       highlighter = @bike_shop.items.create(name: "Pink Highlighter", description: "all the color!", price: 1, image: "http://t0.gstatic.com/images?q=tbn%3AANd9GcTJXpxn5ri-bUeoz3mQ9On7c2PfvL3Ku-ilDUAJ0gv4_0HkUFJBQuriTsUw2yxofI0bSGLbXN4O&usqp=CAc", inventory: 2)
 
       order1 = Order.create!(name: "Kelly", address: "2233 Nothing st", city: "Nowhere", state: "NO", zip: "12345", user: @user)
-      order2 = Order.create!(name: "Beccy", address: "3456 Something st", city: "Somewhere", state: "SO", zip: "789896", user: @user)
+      order2 = Order.create!(name: "Beccy", address: "3456 Something st", city: "Somewhere", state: "SO", zip: "789896", user: @user, status: 0)
       order3 = Order.create!(name: "Carmen", address: "4356 Exists st", city: "Exist", state: "EX", zip: "405093", user: @user)
       order4 = Order.create!(name: "Sandiego", address: "68940 Somewhere st", city: "Somewhere", state: "SO", zip: "40034", user: @user)
 
@@ -70,10 +70,10 @@ RSpec.describe "As an merchant employee,", type: :feature do
       expect(page).to have_content("#{order1.total_items}")
       expect(page).to have_content("#{order1.grandtotal}")
 
-      expect(page).to have_link("#{order2.id}")
-      expect(page).to have_content("#{order2.creation}")
-      have_content("#{order2.total_items}")
-      expect(page).to have_content("#{order2.grandtotal}")
+      expect(page).to_not have_link("#{order2.id}")
+      expect(page).to_not have_content("#{order2.creation}")
+      expect(page).to_not have_content("#{order2.total_items}")
+      expect(page).to_not have_content("#{order2.grandtotal}")
 
       expect(page).to_not have_content("#{order3.id}")
       expect(page).to_not have_content("#{order4.id}")
