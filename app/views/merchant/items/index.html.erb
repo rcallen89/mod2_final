@@ -1,0 +1,49 @@
+<h2>My Shop's Iitems</h2>
+
+<table class = "cart-items">
+  <tr>
+    <th>Item</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Inventory</th>
+    <th>Status</th>
+    <th>Options</th>
+  </tr>
+
+  <% @items.each do |item| %>
+    <tr id= "item-<%=item.id%>">
+      <td>
+        <img align = "center" id="cart-image" src= <%= item.image %>>
+        <%=link_to item.name, "/items/#{item.id}" %>
+      </td>
+
+      <td>
+        <%=number_to_currency(item.price)%>
+      </td>
+
+      <td>
+        <%= item.description%>
+      </td>
+
+      <td>
+        <p><%= item.inventory %></p>
+      </td>
+
+      <td>
+        <%= item.active? %>
+      </td>
+
+      <td>
+        <% if item.no_orders? %>
+          <%= link_to 'Delete Item', items_path(item.id), method: :delete %>
+        <% end %>
+        <% if item.active? %>
+          <%= link_to 'Deactivate Item', merchant_item_path(item.id), method: :put %>
+        <% else %>
+          <%= link_to 'Activate Item', merchant_item_path(item.id), method: :put %>
+        <% end %>
+      </td>
+
+    </tr>
+  <% end %>
+</table>
