@@ -35,7 +35,7 @@
 
       <td>
         <% if item.no_orders? %>
-          <%= link_to 'Delete Item', items_path(item.id), method: :delete %>
+          <%= link_to 'Delete Item', merchant_item_path(item.id), method: :delete %>
         <% end %>
         <% if item.active? %>
           <%= link_to 'Deactivate Item', merchant_item_path(item.id), method: :put %>
