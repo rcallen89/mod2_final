@@ -27,7 +27,7 @@ RSpec.describe("Order Fullfillment") do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit "/merchant"
-
+    
     click_on("#{order.id}")
 
     visit "/merchant/orders/#{order.id}"
