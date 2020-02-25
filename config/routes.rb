@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     get '/', to: 'admin#show'
     get '/users', to: 'users#index'
     get '/users/:id', to: 'users#show'
-    get '/merchants/:id', to: 'merchants#show'
+    resources :merchants, only: [:index, :show, :update]
     resources :orders, only: [:update]
   end
 
