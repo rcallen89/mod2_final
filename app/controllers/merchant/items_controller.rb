@@ -1,8 +1,8 @@
-class Merchant::ItemsController < Merchant::BaseController 
+class Merchant::ItemsController < Merchant::BaseController
 
     def index
       @items = current_user.merchants.first.items
-    end 
+    end
 
     def update
       item = Item.find(params[:id])
@@ -14,5 +14,13 @@ class Merchant::ItemsController < Merchant::BaseController
         flash[:notice] = "#{item.name} is no longer for sale"
       end
       redirect_to '/merchant/items'
+    end
+
+    def destroy
+      item = Item.find(params[:id])
+      Review.where(item_id: item.id).destroy_all
+      item.destroy
+      flash[:notice] = "#{item.name} has been removed from items"
+      redirect_to "/merchant/items"
     end
 end
