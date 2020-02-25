@@ -37,4 +37,8 @@ class Merchant <ApplicationRecord
     items.update(active?: true)
   end
 
+  def employee?
+    require 'pry'; binding.pry
+  end
+
 end
