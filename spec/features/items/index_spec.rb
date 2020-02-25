@@ -62,10 +62,32 @@ RSpec.describe "Items Index Page" do
         expect(current_path).to eq("/items/#{@pull_toy.id}")
       end
     end 
+    
+    #Meg is  bike, Brian is dog
+    it "I see statistics on the top 5 most popular items." do
+      treat_bandolier = @brian.items.create(name: "Treat Bandolier", description: "Go Rambo with your dog treats.", price: 10, image: "http://lovencaretoys.com/image/cache/dog/tug-toy-dog-pull-9010_2-800x800.jpg", inventory: 32)
+      pull_toy = @brian.items.create(name: "Pull Toy", description: "Great pull toy!", price: 10, image: "http://lovencaretoys.com/image/cache/dog/tug-toy-dog-pull-9010_2-800x800.jpg", inventory: 32)
+      dog_bone = @brian.items.create(name: "Dog Bone", description: "They'll love it!", price: 21, image: "https://img.chewy.com/is/image/catalog/54226_MAIN._AC_SL1500_V1534449573_.jpg", active?:false, inventory: 21)
+      snoop_dawg = @brian.items.create(name: "Snoopy Dog Toy", description: "They'll be confused by it!", price: 21, image: "https://img.chewy.com/is/image/catalog/54226_MAIN._AC_SL1500_V1534449573_.jpg", active?:false, inventory: 21)
+      squeak_toy = @brian.items.create(name: "Squeaky Toy", description: "It'll annoy everyone but your dog!", price: 12, image: "https://img.chewy.com/is/image/catalog/54226_MAIN._AC_SL1500_V1534449573_.jpg", active?:false, inventory: 21)
+      tooth_brush = @brian.items.create(name: "Dog Toothbrush", description: "Brush yo dog's teefers!", price: 5, image: "https://img.chewy.com/is/image/catalog/54226_MAIN._AC_SL1500_V1534449573_.jpg", active?:false, inventory: 21)
+      
+      tire = @meg.items.create(name: "Gatorskins", description: "They'll never pop!", price: 100, image: "https://www.rei.com/media/4e1f5b05-27ef-4267-bb9a-14e35935f218?size=784x588", inventory: 12)
+      chain = @meg.items.create(name: "Chain", description: "It'll never break!", price: 50, image: "https://www.rei.com/media/b61d1379-ec0e-4760-9247-57ef971af0ad?size=784x588", inventory: 5)
+      shifter = @meg.items.create(name: "Shimano Shifters", description: "It'll always shift!", price: 180, image: "https://images-na.ssl-images-amazon.com/images/I/4142WWbN64L._SX466_.jpg", inventory: 7)
+      bike_seat = @meg.items.create(name: "Bike Seat", description: "Super comfy!", price: 80, image: "https://images-na.ssl-images-amazon.com/images/I/4142WWbN64L._SX466_.jpg", inventory: 7)
+      bike_horn = @meg.items.create(name: "Bike Horn", description: "A truck horn for your bike!", price: 80, image: "https://images-na.ssl-images-amazon.com/images/I/4147WWbN64L._SX466_.jpg", inventory: 7)
+      bike_basket = @meg.items.create(name: "Bike Basket", description: "A place to put your junk.", price: 30, image: "https://images-na.ssl-images-amazon.com/images/I/4147WWbN64L._SX466_.jpg", inventory: 7)
+
+      visit "/items"
+
+      expect(page).to have_content()
+    end 
+
+    it "I see statistics on the bottom 5 least popular items." do
+      visit "/items"
+
+      
+    end 
   end
 end
-
-# find(:xpath, “//a/img[@alt=‘Tug toy dog pull 9010 2 800x800’]/..“).click
-# find("img[src*='#{@pull_toy.image}']").click
-# expect(page).to have_css("img[src*='#{@pull_toy.image}']")
-# expect(page).to have_link("img[src*='#{@pull_toy.image}']")
