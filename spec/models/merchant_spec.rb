@@ -7,6 +7,7 @@ describe Merchant, type: :model do
     it { should validate_presence_of :city }
     it { should validate_presence_of :state }
     it { should validate_presence_of :zip }
+    #Create Shoulda for enabled?
   end
 
   describe "relationships" do
@@ -57,5 +58,32 @@ describe Merchant, type: :model do
       expect(@meg.distinct_cities).to eq(["Denver","Hershey"])
     end
 
+    it 'deactivate_items' do
+      merchant = Merchant.create(name: "Meg's Bike Shop", address: '123 Bike Rd.', city: 'Denver', state: 'CO', zip: 80203)
+      tire = merchant.items.create(name: "Gatorskins", description: "They'll never pop!", price: 100, image: "https://www.rei.com/media/4e1f5b05-27ef-4267-bb9a-14e35935f218?size=784x588", inventory: 12)
+      seat = merchant.items.create(name: "Seat", description: "Comfy!", price: 100, image: "https://www.rei.com/media/4e1f5b05-27ef-4267-bb9a-14e35935f218?size=784x588", inventory: 12)
+
+      expect(tire.active?).to eq(true)
+      expect(seat.active?).to eq(true)
+
+      merchant.deactivate_items
+
+      expect(tire.active?).to eq(false)
+      expect(seat.active?).to eq(false)
+    end
+
+    it 'activate_items' do
+      merchant = Merchant.create(name: "Meg's Bike Shop", address: '123 Bike Rd.', city: 'Denver', state: 'CO', zip: 80203)
+      tire = merchant.items.create(name: "Gatorskins", description: "They'll never pop!", price: 100, image: "https://www.rei.com/media/4e1f5b05-27ef-4267-bb9a-14e35935f218?size=784x588", inventory: 12, active?: false)
+      seat = merchant.items.create(name: "Seat", description: "Comfy!", price: 100, image: "https://www.rei.com/media/4e1f5b05-27ef-4267-bb9a-14e35935f218?size=784x588", inventory: 12, active?: false)
+
+      expect(tire.active?).to eq(false)
+      expect(seat.active?).to eq(false)
+
+      merchant.activate_items
+
+      expect(tire.active?).to eq(true)
+      expect(seat.active?).to eq(true)
+    end
   end
 end
