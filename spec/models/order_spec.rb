@@ -84,5 +84,19 @@ describe Order, type: :model do
       expect(order.current_status).to eq("Packaged")
 
     end
+
+    it 'items_by_merchant' do
+      expect(@order_2.items_by_merchant(@meg.id)).to eq(2)
+      expect(@order_1.items_by_merchant(@meg.id)).to eq(2)
+      expect(@order_3.items_by_merchant(@brian.id)).to eq(0)
+      expect(@order_4.items_by_merchant(@brian.id)).to eq(0)
+    end
+
+    it "grandtotal_by_merchant" do
+      expect(@order_2.grandtotal_by_merchant(@meg.id)).to eq(200.00)
+      expect(@order_1.grandtotal_by_merchant(@meg.id)).to eq(200.00)
+      expect(@order_3.grandtotal_by_merchant(@brian.id)).to eq(0)
+      expect(@order_4.grandtotal_by_merchant(@brian.id)).to eq(0)
+    end
   end
 end

@@ -67,8 +67,8 @@ RSpec.describe "As an merchant employee,", type: :feature do
 
       expect(page).to have_link("#{order1.id}")
       expect(page).to have_content("#{order1.creation}")
-      expect(page).to have_content("#{order1.total_items}")
-      expect(page).to have_content("#{order1.grandtotal}")
+      expect(page).to have_content("#{order1.items_by_merchant(@bike_shop.id)}")
+      expect(page).to have_content("#{order1.grandtotal_by_merchant(@bike_shop.id)}")
 
       expect(page).to_not have_link("#{order2.id}")
 

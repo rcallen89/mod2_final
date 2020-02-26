@@ -9,8 +9,8 @@
 <p>Orders</p>
 <%@orders.each do |order|%>
   <p>Order number: <%=link_to "#{order.id}", "/merchant/orders/#{order.id}" %><br>
-    Total Items: <%=order.total_items%><br>
-    Grand Total: <%=order.grandtotal%><br>
+    Total Items: <%=order.items_by_merchant(current_user.merchants.first.id)%><br>
+    Grand Total: <%=number_to_currency(order.grandtotal_by_merchant(current_user.merchants.first.id))%><br>
     Date Ordered: <%=order.creation%><br></p>
 <%end%>
 
