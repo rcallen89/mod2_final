@@ -16,6 +16,12 @@ RSpec.describe "Merchant Dashboard My Items Page" do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
+
+  it 'can see a button to add a new item' do
+    visit "/merchant/items"
+
+    expect(page).to have_link("New Item")
+  end
   it "can see a delete button next to each item" do
 
     visit "/merchant/items"

@@ -1,5 +1,8 @@
 <h2>My Shop's Iitems</h2>
 
+  <p align="center"><%= link_to "Add New Item", "/merchants/#{@items.first.merchant_id}/items/new" %></p>
+
+
 <table class = "cart-items">
   <tr>
     <th>Item</th>
@@ -30,7 +33,7 @@
       </td>
 
       <td>
-        <%= item.active? %>
+        <%= item.active? ? "Active" : "Inactive" %>
       </td>
 
       <td>

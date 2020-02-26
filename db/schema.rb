@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20200225022020) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "price"
-    t.string "image"
+    t.float "price"
+    t.string "image", default: "https://www.wpclipart.com/office/sale_promo/new_item/new_item_light_red.png"
     t.boolean "active?", default: true
     t.integer "inventory"
     t.bigint "merchant_id"
