@@ -33,10 +33,7 @@ RSpec.describe("Order Fullfillment") do
     visit "/merchant/orders/#{order.id}"
 
     #someone elses shop
-    within "#item_order-#{tire.id}" do
-      expect(page).to_not have_link("Fulfill Item")
-      expect(page).to have_content('None of your business')
-    end
+    expect(page).to_not have_link("#{tire.id}")
 
     #already fulfilled
     within "#item_order-#{pencil.id}" do
@@ -184,21 +181,21 @@ RSpec.describe("Order Fullfillment") do
     expect(page).to have_content("NO")
     expect(page).to have_content("12345")
 
-    expect(page).to have_link("paper.id")
-    expect(page).to have_content("paper.name")
-    expect(page).to have_content("paper.price")
-    expect(page).to have_content("paper.quantity")
+    expect(page).to have_content("#{paper.id}")
+    expect(page).to have_content("#{paper.name}")
+    expect(page).to have_content("#{item_order2.price}")
+    expect(page).to have_content("#{item_order2.quantity}")
 
-    expect(page).to have_link("pencil.id")
-    expect(page).to have_content("pencil.name")
-    expect(page).to have_content("pencil.price")
-    expect(page).to have_content("pencil.quantity")
+    expect(page).to have_content("#{pencil.id}")
+    expect(page).to have_link("#{pencil.name}")
+    expect(page).to have_content("#{item_order3.price}")
+    expect(page).to have_content("#{item_order3.quantity}")
 
-    expect(page).to have_link("highlighter.id")
-    expect(page).to have_content("highlighter.name")
-    expect(page).to have_content("highlighter.price")
-    expect(page).to have_content("highlighter.quantity")
+    expect(page).to have_content("#{highlighter.id}")
+    expect(page).to have_link("#{highlighter.name}")
+    expect(page).to have_content("#{item_order4.price}")
+    expect(page).to have_content("#{item_order4.quantity}")
 
-    expect(page).to_not have_content("tire.id")
+    expect(page).to_not have_content("#{tire.id}")
   end
 end
