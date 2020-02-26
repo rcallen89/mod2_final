@@ -1,9 +1,18 @@
+<h1><%=@order.name%><h1/><br>
+<p><%=@order.address%></p><br>
+<p><%=@order.city%></p><br>
+<p><%=@order.state%></p><br>
+<p><%=@order.zip%></p><br>
+
 <p>Order Status: <%=@order.current_status%></p>
 
 <%@order.item_orders.each do |item_order|%>
+  <%if item_order.item.merchant.id == current_user.merchants.first.id%>
   <section id='item_order-<%=item_order.item_id %>'>
     Item Id: <%=item_order.item_id%><br>
-    Item Name: <%=item_order.item.name%><br>
+    Item Name: <%=link_to "#{item_order.item.name}", "/items/#{item_order.item.id}"%><%=item_order.item.name%><br>
+    Price: <%=item_order.price%><br>
+    Quantity: <%=item_order.quantity%><br>
     From: <%=item_order.item.merchant.name%><br>
     Status:
     <%if item_order.is_mine?(current_user.merchants.first.id) && item_order.status == "Unfulfilled" && item_order.enough_stock?%>
@@ -16,4 +25,5 @@
       None of your business
     <%end%><br><br><br>
   </section>
+  <%end%>
 <%end%>
