@@ -1,22 +1,22 @@
 <h1>Create New Item For <%=link_to @merchant.name, "/merchants/#{@merchant.id}" %></h1>
 
 <center>
-  <%= form_tag "/merchants/#{@merchant.id}/items", method: :post do %>
-    <%= label_tag :name %>
-    <%= text_field_tag :name%>
+  <%= form_for @item, url: "/merchants/#{@merchant.id}/items", method: :post do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, value: @item.name %>
 
-    <%= label_tag :description %>
-    <%= text_field_tag :description %>
+    <%= f.label :description %>
+    <%= f.text_field :description, value: @item.description %>
 
-    <%= label_tag :price %>
-    <%= text_field_tag :price %>
+    <%= f.label :price %>
+    <%= f.number_field :price, value: @item.price, min: 0.5, step: 0.5 %>
+    <br>
+    <%= f.label :image %>
+    <%= f.text_field :image, value: @item.image %>
 
-    <%= label_tag :image %>
-    <%= text_field_tag :image %>
+    <%= f.label :inventory %>
+    <%= f.number_field :inventory, value: @item.inventory, min: 0 %>
 
-    <%= label_tag :inventory %>
-    <%= text_field_tag :inventory %>
-
-    <%= submit_tag 'Create Item' %>
+    <%= f.submit 'Create Item' %>
   <% end %>
 </center>

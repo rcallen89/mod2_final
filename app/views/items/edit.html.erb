@@ -1,22 +1,23 @@
 <h1>Edit <%=link_to @item.name, "/items/#{@item.id}" %></h1>
 
 <center>
-  <%= form_tag "/items/#{@item.id}", method: :patch  do %>
-    <%= label_tag :name %>
-    <%= text_field_tag :name, "#{@item.name}"%>
+  <%= form_for @item, url: "/items/#{@item.id}", method: :patch do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, value: @item.name %>
 
-    <%= label_tag :description %>
-    <%= text_field_tag :description, "#{@item.description}" %>
+    <%= f.label :description %>
+    <%= f.text_field :description, value: @item.description %>
 
-    <%= label_tag :price %>
-    <%= text_field_tag :price, "#{number_to_currency(@item.price)}" %>
+    <%= f.label :price %>
+    <%= f.number_field :price, value: @item.price, min: 0.5, step: 0.5 %>
+    <br>
+    <%= f.label :image %>
+    <%= f.text_field :image, value: @item.image %>
 
-    <%= label_tag :image %>
-    <%= text_field_tag :image, "#{@item.image}" %>
+    <%= f.label :inventory %>
+    <%= f.number_field :inventory, value: @item.inventory, min: 0 %>
 
-    <%= label_tag :inventory %>
-    <%= text_field_tag :inventory, "#{@item.inventory}" %>
-
-    <%= submit_tag 'Update Item' %>
+    <%= f.submit 'Update Item' %>
   <% end %>
 </center>
+
