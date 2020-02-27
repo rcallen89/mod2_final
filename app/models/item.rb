@@ -30,7 +30,7 @@ class Item <ApplicationRecord
   end
 
   def self.bottomfive
-    left_outer_joins(:item_orders).group(:id).order('SUM(item_orders.quantity) ASC NULLS FIRST').limit(5).select('items.*, COALESCE(SUM(item_orders.quantity),0) as quantity')
+    left_outer_joins(:item_orders).group(:id).order('SUM(item_orders.quantity) ASC NULLS FIRST').limit(5).select('items.*, COALESCE(SUM(item_orders.quantity), 0) as quantity')
   end
 
 end
