@@ -23,19 +23,29 @@
     </section>
     <% end %>
 </section>
-
+<h2>Most Popular Items</h2></br>
 <section id="top-items">
   1. <%= @topfive[0].name %></br>
+  Quantity: <%=@topfive[0].quantity%></br>
   2. <%= @topfive[1].name %></br>
+  Quantity: <%=@topfive[1].quantity%></br>
   3. <%= @topfive[2].name %></br>
+  Quantity: <%=@topfive[2].quantity%></br>
   4. <%= @topfive[3].name %></br>
+  Quantity: <%=@topfive[3].quantity%></br>
   5. <%= @topfive[4].name %></br>
+  Quantity: <%=@topfive[4].quantity%></br>
 </section>
-
+<h2>Least Popular Items</h2></br>
 <section id="bottom-items">
-  1. <%=  %></br>
-  2. <%=  %></br>
-  3. <%=  %></br>
-  4. <%=  %></br>
-  5. <%=  %></br>
+  1. <%=  @bottomfive[0].name %></br>
+  Quantity: <%=@bottomfive[0].quantity%></br>
+  2. <%=  @bottomfive[1].name%></br>
+  Quantity: <%=@bottomfive[1].quantity%></br>
+  3. <%=  @bottomfive[2].name%></br>
+  Quantity: <%=@bottomfive[2].quantity%></br>
+  4. <%=  @bottomfive[3].name%></br>
+  Quantity: <%=@bottomfive[3].quantity%></br>
+  5. <%=  @bottomfive[4].name%></br>
+  Quantity: <%=@bottomfive[4].quantity%></br>
 </section>
