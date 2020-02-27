@@ -7,6 +7,8 @@ class ItemsController<ApplicationController
     else
       @items = Item.where(active?: true)
     end
+    @topfive = Item.topfive
+    binding.pry
   end
 
   def show
