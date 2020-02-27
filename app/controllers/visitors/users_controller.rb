@@ -1,7 +1,12 @@
 class Visitors::UsersController < ApplicationController
 
   def new
-    @user = User.new
+    if current_user
+      flash[:notice] = "You are already logged in."
+      route_by_role(current_user)
+    else
+      @user = User.new
+    end
   end
 
   def create
@@ -21,6 +26,16 @@ class Visitors::UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :street_address, :city, :state, :zip, :email, :password, :password_confirmation)
+    end
+
+    def route_by_role(user)
+      if user.role == 'User'
+        redirect_to '/profile'
+      elsif user.role == 'MerchantEmployee'
+        redirect_to '/merchant'
+      else
+        redirect_to '/admin'
+      end
     end
 
 end

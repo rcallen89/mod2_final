@@ -45,7 +45,7 @@ class ItemsController<ApplicationController
       flash[:notice] = "#{@item.name} has been edited!"
       redirect_to "/items/#{@item.id}"
     else
-      flash[:error] = @item.errors.full_messages.to_sentence
+      # flash[:error] = @item.errors.full_messages.to_sentence
       render :edit
     end
   end
