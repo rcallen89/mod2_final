@@ -23,3 +23,21 @@
     </section>
     <% end %>
 </section>
+<h2>Most Popular Items</h2></br>
+<section id="top-items">
+  <%int = 1%>
+  <%@topfive.each do |item|%>
+    <%= int %>. <%=item.name%></br>
+    Quantity: <%=item.quantity%></br></br>
+    <%int += 1%>
+  <%end%>
+</section>
+<h2>Least Popular Items</h2></br>
+<section id="bottom-items">
+  <%int = 1%>
+  <%@bottomfive.each do |item|%>
+    <%= int %>. <%=item.name%></br>
+    Quantity: <%=item.quantity%></br></br>
+    <%int += 1%>
+  <%end%>
+</section>
