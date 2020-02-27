@@ -11,18 +11,22 @@ class Item <ApplicationRecord
                         :inventory
   validates_inclusion_of :active?, :in => [true, false]
   validates_numericality_of :price, greater_than: 0
-
-
+  
+  
   def average_review
     reviews.average(:rating)
   end
-
+  
   def sorted_reviews(limit, order)
     reviews.order(rating: order).limit(limit)
   end
-
+  
   def no_orders?
     item_orders.empty?
+  end
+  
+  def self.topfive
+    Item.left_outer_joins(:item_orders).group(:id).order('sum(item_orders.quantity) DESC').limit(5)
   end
 
 end
