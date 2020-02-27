@@ -41,16 +41,16 @@ order2 = Order.create!(name: "Kelly", address: "2233 Nothing st", city: "Nowhere
 order3 = Order.create!(name: "Kelly", address: "2233 Nothing st", city: "Nowhere", state: "NO", zip: "12345", user: user2)
 order4 = Order.create!(name: "Kelly", address: "2233 Nothing st", city: "Nowhere", state: "NO", zip: "12345", user: user3)
 
-ItemOrder.create(price: 6, quantity: 7, order: order, item: pull_toy)
-ItemOrder.create(price: 2, quantity: 2, order: order, item: dog_bone)
-ItemOrder.create(price: 2, quantity: 2, order: order, item: tire)
+ItemOrder.create(price: pull_toy.price, quantity: 7, order: order, item: pull_toy)
+ItemOrder.create(price: dog_bone.price, quantity: 2, order: order, item: dog_bone)
+ItemOrder.create(price: tire.price, quantity: 2, order: order, item: tire)
 
-ItemOrder.create(price: 6, quantity: 3, order: order2, item: pull_toy, status: 1)
-ItemOrder.create(price: 2, quantity: 9, order: order2, item: tire, status: 1)
+ItemOrder.create(price: pull_toy.price, quantity: 3, order: order2, item: pull_toy, status: 1)
+ItemOrder.create(price: tire.price, quantity: 9, order: order2, item: tire, status: 1)
 
-ItemOrder.create(price: 6, quantity: 1, order: order3, item: pull_toy)
-ItemOrder.create(price: 2, quantity: 20, order: order3, item: dog_bone)
-ItemOrder.create(price: 2, quantity: 3, order: order3, item: tire)
+ItemOrder.create(price: pull_toy.price, quantity: 1, order: order3, item: pull_toy)
+ItemOrder.create(price: dog_bone.price, quantity: 20, order: order3, item: dog_bone)
+ItemOrder.create(price: tire.price, quantity: 3, order: order3, item: tire)
 
-ItemOrder.create(price: 6, quantity: 5, order: order4, item: pull_toy)
-ItemOrder.create(price: 2, quantity: 4, order: order4, item: dog_bone)
+ItemOrder.create(price: pull_toy.price, quantity: 5, order: order4, item: pull_toy)
+ItemOrder.create(price: dog_bone.price, quantity: 4, order: order4, item: dog_bone)

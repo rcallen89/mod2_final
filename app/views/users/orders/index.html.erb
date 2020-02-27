@@ -8,7 +8,7 @@
     <th>Status</th>
     <th>Created On</th>
     <th>Updated On</th>
-    <th>Options</th>
+
   </tr>
   <% current_user.orders.each do |order| %>
     <section id="order-<%= order.id %>">
@@ -22,7 +22,7 @@
       </td>
 
       <td>
-      <%= order.grandtotal %>
+      <%= number_to_currency(order.grandtotal) %>
       </td>
 
       <td>
@@ -37,9 +37,7 @@
       <%= order.updated %>
       </td>
 
-      <td>
-      TO DO
-      </td>
+
     </section>
   <% end %>
 </table>

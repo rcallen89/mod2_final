@@ -22,7 +22,7 @@ class ItemsController<ApplicationController
 
   def create
     @merchant = Merchant.find(params[:merchant_id])
-    params.delete params[:item][:image] if ( (params[:item][:image].blank?))
+    params[:item].delete_if {|attr, value| value.blank? }
     @item = @merchant.items.create(item_params)
     if @item.save
       flash[:notice] = "#{@item.name} is saved and ready for sale!"
@@ -39,7 +39,7 @@ class ItemsController<ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    params.delete params[:item][:image] if ( (params[:item][:image].blank?))
+    params[:item].delete_if {|attr, value| value.blank? }
     @item.update(item_params)
     if @item.save
       flash[:notice] = "#{@item.name} has been edited!"

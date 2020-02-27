@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+      flash[:notice] = "You have been logged In!"
       route_by_role(user)
     else
       flash[:error] = "Invalid Login"
