@@ -15,7 +15,7 @@
   <%= f.text_field :zip, value: @user.zip %>
 
   <%= f.label :email %>
-  <%= f.email_field :email, value: nil %>
+  <%= f.email_field :email %>
 
   <% if current_user == nil %>
     <%= f.label :password %>

@@ -11,6 +11,7 @@ class Visitors::UsersController < ApplicationController
       flash[:notice] = "Successfully Registered and Logged In"
       redirect_to '/profile'
     else
+      params[:user].delete(:email)
       flash[:error] = @user.errors.full_messages.to_sentence
       render :new
     end
