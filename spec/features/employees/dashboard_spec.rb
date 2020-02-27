@@ -72,7 +72,6 @@ RSpec.describe "As an merchant employee,", type: :feature do
 
       expect(page).to_not have_link("#{order2.id}")
 
-      expect(page).to_not have_content("#{order3.id}")
-      expect(page).to_not have_content("#{order4.id}")
+
     end
 end
