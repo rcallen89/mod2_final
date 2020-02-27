@@ -6,9 +6,10 @@
 
 ## Schema Design 
 Below is a snapshot of this project's schema:
-![](schema.png)
 
-<img width="990" alt="schema.png" src="https://prnt.sc/r8pb4k">
+
+<img width="990" alt="schema.png" src="https://imgur.com/2unPMkT">
+
 
 ### Heroku Link
  * 
