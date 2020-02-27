@@ -154,7 +154,7 @@ RSpec.describe "Items Index Page" do
       item_order_6 = ItemOrder.create!(item: bike_horn, order: order_2, price: 200, quantity: 100)
 
       visit "/items"
-
+      save_and_open_page
       within "#bottom-items" do
         expect(page).to have_content("Quantity: 0")
         expect(page).to have_content("Quantity: 1").twice
