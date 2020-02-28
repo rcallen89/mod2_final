@@ -93,9 +93,11 @@ An **administrator** of this website has all of the same permissions as users ex
  * This dashboard displays a breakdown of all orders which are sorted by packaged, pending, shipped, and cancelled.
  * Each order has a link to the user who made the order, it's ID, when it was made, current status, and a link to ship the order if fully packaged.
 
+
 **User Index**
 <img width="1003" alt="Screen Shot 2020-02-27 at 6 49 04 PM" src="https://user-images.githubusercontent.com/54481094/75504786-ad8eba00-5996-11ea-98e4-aebdb3505cde.png">
  *  Displays list of all user names link to their indivdual profile, their roles, and when they were created.
+
 
 **Merchant Index**
 <img width="994" alt="Screen Shot 2020-02-27 at 6 50 26 PM" src="https://user-images.githubusercontent.com/54481094/75503194-36efbd80-5992-11ea-897e-cc763570b115.png">
@@ -103,8 +105,10 @@ An **administrator** of this website has all of the same permissions as users ex
  * Displays merchant name with a link to their individual profile, their location, and an option to both enable or disable a merchant.
     * Enabling and disabling will activate or deactivate those merchant's items, respectively.
 
+
 ### Logging Out
 All types of users have access to logging out.  When any type of user logs out, they are redirected to the home page.  If there are any items in the cart, they are removed.
+
 
 ### Schema Design 
 Below is a diagram of this project's schema as well as the corresponding code:
