@@ -28,6 +28,8 @@ A **visitor** can:
 #### User
 A **user** of this website has an account created with the site
 
+<img width="1430" alt="Screen Shot 2020-02-27 at 6 38 33 PM" src="https://user-images.githubusercontent.com/55723833/75502592-77e6d280-5990-11ea-9525-c3c524e77d07.png">
+
 Before one can access user functionality, they must have registered with the site.  Registration requires name, full address, unique email, and matching password fields in order to complete successfully.
 
 A user can do all of the things a visitor can do, plus:
