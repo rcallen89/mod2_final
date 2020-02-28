@@ -17,7 +17,7 @@ To set up locally:
 #### Visitor
 A **visitor** to this website is classifed as anyone who is not currently logged in.
 
-A visitor can:
+A **visitor** can:
  * visit the index of merchants,
  * visit the index of items,
  * add items to a cart,
@@ -55,14 +55,14 @@ If a user would like to proceed with their finalized order, they have the abilit
 #### Merchant Employee
 A **merchant employee** of this website includes all of the same access as a **user**, plus:
 
-Merchant Dashboard:
+**Merchant Dashboard**
  * Upon login, merchanty employee is directed to merchant dashboard instead of user profile.
  * Displays information on the merchant that the employee works for.
  * Displays open orders for items the merchant has:
     * each order displays an ID, total items for that merchant, total cost for that merchant, and the date the order was placed.
  * Also, the dashboard has links to view item index for the merchant in question.
 
-Item Index: 
+**Item Index** 
  * Displays breakdown of items for the merchant in question.
  * Able to both activate and deactivate individual items.
  * Option to delete items that have never been ordered.
@@ -71,7 +71,7 @@ Item Index:
     * item image is optional, and a placeholder image is inserted if employee declines to add an image.
  * By going to an individual item, an employee can edit and item with the same requirements as a new item applied.
 
-Order Show Page:
+**Order Show Page**
  * Displays information for order such as name, ID, shipping address, and status.
  * Provides breakdown of items this merchant has within the order.
  * Option to fulfill if there is enough inventory in stock.
@@ -80,15 +80,15 @@ Order Show Page:
 #### Administrator
 An **administrator** of this website has all of the same permissions as users except access to the cart.
 
-Admin Dashboard
+**Admin Dashboard**
  * Upon login, an admin is directed to the admin dashboard instead of user profile.
  * This dashboard displays a breakdown of all orders which are sorted by packaged, pending, shipped, and cancelled.
  * Each order has a link to the user who made the order, it's ID, when it was made, current status, and a link to ship the order if fully packaged.
 
-User Index
+**User Index**
  *  Displays list of all user names link to their indivdual profile, their roles, and when they were created.
 
-Merchant Index
+**Merchant Index**
  * To access, one must access the /admin/merchants path in their URL bar.
  * Displays merchant name with a link to their individual profile, their location, and an option to both enable or disable a merchant.
     * Enabling and disabling will activate or deactivate those merchant's items, respectively.
@@ -102,7 +102,6 @@ Below is a snapshot of this project's schema:
 
 
 
-
 ### Production Link
  * https://monster-shop-1911.herokuapp.com/
 
@@ -112,10 +111,3 @@ Below is a snapshot of this project's schema:
  * **Ryan Allen** - https://github.com/rcallen89
  * **Jenny Klich** - https://github.com/jklich151
  * **Jordan Sewell** - https://github.com/jrsewell400
-
-Final project has a well written README with pictures, 
-schema design - DONE (except for picture) 
-code snippets - IN PROGRESS 
-contributors names linked to their github profile - DONE
-heroku link - DONE 
-and implementation instructions - DONE
