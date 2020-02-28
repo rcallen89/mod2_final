@@ -101,7 +101,7 @@ All types of users have access to logging out.  When any type of user logs out, 
 
 ### Schema Design 
 Below is a snapshot of this project's schema:
-<img width="703" alt="Screen Shot 2020-02-27 at 3 24 06 PM" src="https://user-images.githubusercontent.com/56602822/75492749-a3a88f00-5975-11ea-9e27-a6b544800e02.png">
+![schema](https://user-images.githubusercontent.com/54481094/75502868-51756700-5991-11ea-9e60-99618154b7ea.png)
 
 
 
