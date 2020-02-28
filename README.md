@@ -93,7 +93,6 @@ An **administrator** of this website has all of the same permissions as users ex
  * Each order has a link to the user who made the order, it's ID, when it was made, current status, and a link to ship the order if fully packaged.
 
 **User Index**
-<img width="782" alt="Screen Shot 2020-02-27 at 6 47 12 PM" src="https://user-images.githubusercontent.com/54481094/75503063-dd878e80-5991-11ea-871e-9798f16ad39b.png">
  *  Displays list of all user names link to their indivdual profile, their roles, and when they were created.
 
 **Merchant Index**
