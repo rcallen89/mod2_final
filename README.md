@@ -57,6 +57,7 @@ If a user would like to proceed with their finalized order, they have the abilit
 A **merchant employee** of this website includes all of the same access as a **user**, plus:
 
 **Merchant Dashboard**
+<img width="940" alt="Screen Shot 2020-02-27 at 6 52 55 PM" src="https://user-images.githubusercontent.com/54481094/75503299-8d5cfc00-5992-11ea-9d1c-4c1376b68257.png">
  * Upon login, merchanty employee is directed to merchant dashboard instead of user profile.
  * Displays information on the merchant that the employee works for.
  * Displays open orders for items the merchant has:
@@ -64,6 +65,7 @@ A **merchant employee** of this website includes all of the same access as a **u
  * Also, the dashboard has links to view item index for the merchant in question.
 
 **Item Index** 
+<img width="938" alt="Screen Shot 2020-02-27 at 6 58 19 PM" src="https://user-images.githubusercontent.com/54481094/75503573-31df3e00-5993-11ea-90fb-ad53818e5259.png">
  * Displays breakdown of items for the merchant in question.
  * Able to both activate and deactivate individual items.
  * Option to delete items that have never been ordered.
@@ -73,6 +75,8 @@ A **merchant employee** of this website includes all of the same access as a **u
  * By going to an individual item, an employee can edit and item with the same requirements as a new item applied.
 
 **Order Show Page**
+<img width="549" alt="Screen Shot 2020-02-27 at 7 02 27 PM" src="https://user-images.githubusercontent.com/54481094/75503796-eed19a80-5993-11ea-9fb8-a52d33310b6a.png">
+<img width="555" alt="Screen Shot 2020-02-27 at 7 03 55 PM" src="https://user-images.githubusercontent.com/54481094/75503809-f8f39900-5993-11ea-986a-51392df33173.png">
  * Displays information for order such as name, ID, shipping address, and status.
  * Provides breakdown of items this merchant has within the order.
  * Option to fulfill if there is enough inventory in stock.
