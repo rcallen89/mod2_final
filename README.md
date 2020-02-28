@@ -110,7 +110,7 @@ Below is a diagram of this project's schema as well as the corresponding code:
 ![schema](https://user-images.githubusercontent.com/54481094/75502868-51756700-5991-11ea-9e60-99618154b7ea.png)
 
 
-<img width="554" alt="Screen Shot 2020-02-27 at 7 11 22 PM" src="https://user-images.githubusercontent.com/54481094/75504343-6d7b0780-5995-11ea-8b28-49b2b40a4406.png"><img width="545" alt="Screen Shot 2020-02-27 at 7 12 41 PM" src="https://user-images.githubusercontent.com/54481094/75504362-7c61ba00-5995-11ea-955c-857dcc8f6f31.png">
+<img width="545" alt="Screen Shot 2020-02-27 at 7 11 22 PM" src="https://user-images.githubusercontent.com/54481094/75504343-6d7b0780-5995-11ea-8b28-49b2b40a4406.png"><img width="545" alt="Screen Shot 2020-02-27 at 7 12 41 PM" src="https://user-images.githubusercontent.com/54481094/75504362-7c61ba00-5995-11ea-955c-857dcc8f6f31.png">
 
 
 
