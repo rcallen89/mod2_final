@@ -76,8 +76,8 @@ A **merchant employee** of this website includes all of the same access as a **u
 
 **Order Show Page**
 
-<img width="549" alt="Screen Shot 2020-02-27 at 7 02 27 PM" src="https://user-images.githubusercontent.com/54481094/75503796-eed19a80-5993-11ea-9fb8-a52d33310b6a.png">
-<img width="555" alt="Screen Shot 2020-02-27 at 7 03 55 PM" src="https://user-images.githubusercontent.com/54481094/75503809-f8f39900-5993-11ea-986a-51392df33173.png">
+<img width="549" alt="Screen Shot 2020-02-27 at 7 02 27 PM" src="https://user-images.githubusercontent.com/54481094/75503796-eed19a80-5993-11ea-9fb8-a52d33310b6a.png"><img width="555" alt="Screen Shot 2020-02-27 at 7 03 55 PM" src="https://user-images.githubusercontent.com/54481094/75503809-f8f39900-5993-11ea-986a-51392df33173.png">
+
  * Displays information for order such as name, ID, shipping address, and status.
  * Provides breakdown of items this merchant has within the order.
  * Option to fulfill if there is enough inventory in stock.
@@ -106,8 +106,11 @@ An **administrator** of this website has all of the same permissions as users ex
 All types of users have access to logging out.  When any type of user logs out, they are redirected to the home page.  If there are any items in the cart, they are removed.
 
 ### Schema Design 
-Below is a snapshot of this project's schema:
+Below is a diagram of this project's schema as well as the corresponding code:
 ![schema](https://user-images.githubusercontent.com/54481094/75502868-51756700-5991-11ea-9e60-99618154b7ea.png)
+
+
+<img width="554" alt="Screen Shot 2020-02-27 at 7 11 22 PM" src="https://user-images.githubusercontent.com/54481094/75504343-6d7b0780-5995-11ea-8b28-49b2b40a4406.png"><img width="545" alt="Screen Shot 2020-02-27 at 7 12 41 PM" src="https://user-images.githubusercontent.com/54481094/75504362-7c61ba00-5995-11ea-955c-857dcc8f6f31.png">
 
 
 
