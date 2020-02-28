@@ -98,7 +98,7 @@ An **administrator** of this website has all of the same permissions as users ex
 
 **Merchant Index**
 <img width="994" alt="Screen Shot 2020-02-27 at 6 50 26 PM" src="https://user-images.githubusercontent.com/54481094/75503194-36efbd80-5992-11ea-897e-cc763570b115.png">
- * To access, one must access the /admin/merchants path in their URL bar.
+ * To access, one must enter the /admin/merchants path in their URL bar.
  * Displays merchant name with a link to their individual profile, their location, and an option to both enable or disable a merchant.
     * Enabling and disabling will activate or deactivate those merchant's items, respectively.
 
