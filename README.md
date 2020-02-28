@@ -2,7 +2,7 @@
 
 ## Background and Description
 
-"Monster Shop" is a fictitious e-commerce platform where users can visit the site register to place items into a shopping cart and 'check out'.
+"Monster Shop" is a fictitious e-commerce platform where users can register to place items into a shopping cart and 'check out'. Users who work for a merchant can mark their items as 'fulfilled'; the last merchant to mark items in an order as 'fulfilled' will automatically set the order status to "shipped". Each user role will have access to some or all CRUD functionality for application models.
 
 
 ### Implementation Instructions
@@ -14,10 +14,10 @@ To set up locally:
 
 ### Functionality By User Type
 
-#### Visitor
+### Visitor
 A **visitor** to this website is classifed as anyone who is not currently logged in.
 
-A **visitor** can:
+**Visitors** can:
  * visit the index of merchants,
  * visit the index of items,
  * add items to a cart,
@@ -25,7 +25,7 @@ A **visitor** can:
  * both increase and decrease item quantity in cart, and;
  * can access both login and register routes.
 
-#### User
+### User
 A **user** of this website has an account created with the site
 
 Before one can access user functionality, they must have registered with the site.  Registration requires name, full address, unique email, and matching password fields in order to complete successfully.
@@ -53,7 +53,7 @@ If a user would like to proceed with their finalized order, they have the abilit
 * have a checkout option that, once clicked, will empty their cart.
 
 
-#### Merchant Employee
+### Merchant Employee
 A **merchant employee** of this website includes all of the same access as a **user**, plus:
 
 **Merchant Dashboard**
@@ -74,6 +74,7 @@ A **merchant employee** of this website includes all of the same access as a **u
     * item image is optional, and a placeholder image is inserted if employee declines to add an image.
  * By going to an individual item, an employee can edit and item with the same requirements as a new item applied.
 
+
 **Order Show Page**
 
 <img width="549" alt="Screen Shot 2020-02-27 at 7 02 27 PM" src="https://user-images.githubusercontent.com/54481094/75503796-eed19a80-5993-11ea-9fb8-a52d33310b6a.png"><img width="555" alt="Screen Shot 2020-02-27 at 7 03 55 PM" src="https://user-images.githubusercontent.com/54481094/75503809-f8f39900-5993-11ea-986a-51392df33173.png">
@@ -83,7 +84,7 @@ A **merchant employee** of this website includes all of the same access as a **u
  * Option to fulfill if there is enough inventory in stock.
 
 
-#### Administrator
+### Administrator
 An **administrator** of this website has all of the same permissions as users except access to the cart.
 
 **Admin Dashboard**
@@ -102,7 +103,7 @@ An **administrator** of this website has all of the same permissions as users ex
  * Displays merchant name with a link to their individual profile, their location, and an option to both enable or disable a merchant.
     * Enabling and disabling will activate or deactivate those merchant's items, respectively.
 
-#### Logging Out
+### Logging Out
 All types of users have access to logging out.  When any type of user logs out, they are redirected to the home page.  If there are any items in the cart, they are removed.
 
 ### Schema Design 
