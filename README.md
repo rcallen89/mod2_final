@@ -28,7 +28,7 @@ A **visitor** can:
 #### User
 A **user** of this website has an account created with the site
 
-<img width="1430" alt="Screen Shot 2020-02-27 at 6 38 33 PM" src="https://user-images.githubusercontent.com/55723833/75502592-77e6d280-5990-11ea-9525-c3c524e77d07.png">
+<img width="950" alt="Screen Shot 2020-02-27 at 6 38 33 PM" src="https://user-images.githubusercontent.com/55723833/75502592-77e6d280-5990-11ea-9525-c3c524e77d07.png">
 
 Before one can access user functionality, they must have registered with the site.  Registration requires name, full address, unique email, and matching password fields in order to complete successfully.
 
@@ -83,6 +83,7 @@ A **merchant employee** of this website includes all of the same access as a **u
 An **administrator** of this website has all of the same permissions as users except access to the cart.
 
 **Admin Dashboard**
+<img width="1337" alt="Screen Shot 2020-02-27 at 6 38 08 PM" src="https://user-images.githubusercontent.com/54481094/75502776-0fe4bc00-5991-11ea-94b8-f568858ceaaa.png">
  * Upon login, an admin is directed to the admin dashboard instead of user profile.
  * This dashboard displays a breakdown of all orders which are sorted by packaged, pending, shipped, and cancelled.
  * Each order has a link to the user who made the order, it's ID, when it was made, current status, and a link to ship the order if fully packaged.
