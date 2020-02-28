@@ -75,6 +75,7 @@ A **merchant employee** of this website includes all of the same access as a **u
  * By going to an individual item, an employee can edit and item with the same requirements as a new item applied.
 
 **Order Show Page**
+
 <img width="549" alt="Screen Shot 2020-02-27 at 7 02 27 PM" src="https://user-images.githubusercontent.com/54481094/75503796-eed19a80-5993-11ea-9fb8-a52d33310b6a.png">
 <img width="555" alt="Screen Shot 2020-02-27 at 7 03 55 PM" src="https://user-images.githubusercontent.com/54481094/75503809-f8f39900-5993-11ea-986a-51392df33173.png">
  * Displays information for order such as name, ID, shipping address, and status.
