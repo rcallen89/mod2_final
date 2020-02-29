@@ -29,14 +29,14 @@ RSpec.describe 'Merchant Bulk Discount', type: :feature do
 
      it 'can use a form to add a percentage discount per number of items' do
       visit '/merchant/discounts/new'
-      save_and_open_page
-      fill_in :discount_Percentage, with: 10
-      fill_in :discount_per_item_qty, with: 10
+
+      fill_in :discount_percentage, with: 10
+      fill_in :discount_per_item, with: 10
 
       click_on 'Create Bulk Discount'
 
       expect(current_path).to eq('/merchant')
-
+  
       within '#discounts' do
         expect(page).to have_content("10% off per 10 Items")
       end
