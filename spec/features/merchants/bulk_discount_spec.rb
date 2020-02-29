@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Merchant Bulk Discount', type: :feature do
   before :each do
-    @user = create(:user)
+    @user = create(:user, role: 1)
     @bike_shop = Merchant.create(name: "Brian's Bike Shop", address: '123 Bike Rd.', city: 'Richmond', state: 'VA', zip: 80203)
     @bike_shop.users << @user
     @tire = @bike_shop.items.create(name: "Gatorskins", description: "They'll never pop!", price: 100, image: "https://www.rei.com/media/4e1f5b05-27ef-4267-bb9a-14e35935f218?size=784x588", inventory: 25)
@@ -25,6 +25,21 @@ RSpec.describe 'Merchant Bulk Discount', type: :feature do
        click_on "New Bulk Discount"
 
        expect(current_path).to eq('/merchant/discounts/new')
+     end
+
+     it 'can use a form to add a percentage discount per number of items' do
+       visit '/merchant/discounts/new'
+
+      fill_in :percentage_off, with: 10
+      fill_in :per_item_qty, with: 10
+
+      click_on 'Create Bulk Discount'
+
+      expect(current_path).to eq('/merchant')
+
+      within '#discounts' do
+        expect(page).to have_content("10% off per 10 Items")
+      end
      end
    end
 end
