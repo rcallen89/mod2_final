@@ -23,12 +23,17 @@ class Cart
   end
 
   def subtotal(item)
-    item.price * @contents[item.id.to_s]
+    sub = (item.price * @contents[item.id.to_s])
+    if item.elgibile_for_discount(@contents[item.id.to_s])
+      sub = sub * (1 - (item.discount(@contents[item.id.to_s]) / 100.0))
+    end
+    sub
   end
 
   def total
     @contents.sum do |item_id,quantity|
-      Item.find(item_id).price * quantity
+      item = Item.find(item_id)
+      subtotal(item)
     end
   end
 
