@@ -33,4 +33,19 @@ class Item <ApplicationRecord
     left_outer_joins(:item_orders).group(:id).order('SUM(item_orders.quantity) ASC NULLS FIRST').limit(5).select('items.*, COALESCE(SUM(item_orders.quantity), 0) as quantity')
   end
 
+  def elgibile_for_discount(qty)
+    !merchant.discounts.where("per_item <= #{qty}").empty?
+  end
+
+  def discount(qty)
+    merchant.discounts.where("per_item <= #{qty}").order(percentage: :desc).first.percentage
+  end
+
+  def discounted_price(qty)
+    if elgibile_for_discount(qty)
+      return price * (1 - (discount(qty) / 100.00))
+    end
+    price
+  end
+
 end
