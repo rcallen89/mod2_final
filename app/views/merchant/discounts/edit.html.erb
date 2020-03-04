@@ -1,0 +1,14 @@
+</h2>Edit Bulk Discount</h2>
+<p>Max Percentage off allowed is 50%</p>
+<p>Max Bulk Limit is 20 items.</p>
+
+<%= form_for @discount, url: merchant_discount_path, method: :patch do |f| %>
+  <%= f.label "Percentage Off"%>
+  <%= f.number_field(:percentage, value: @discount.percentage, in: 5..50, step: 1) %>
+
+  <%= f.label "Per Item Quantity"%>
+  <%= f.number_field(:per_item, value: @discount.per_item, in: 2..20, step: 1) %>
+
+  <%= f.submit 'Update Discount' %>
+<% end %>
+

@@ -1,0 +1,9 @@
+<%= form_for @discount, url: merchant_discounts_path, method: method do |f| %>
+  <%= f.label "Percentage Off"%>
+  <%= f.number_field(:percentage, value: 5, in: 5..50, step: 1) %>
+
+  <%= f.label "Per Item Quantity"%>
+  <%= f.number_field(:per_item, value: 5, in: 2..20, step: 1) %>
+
+  <%= f.submit button_text %>
+<% end %>

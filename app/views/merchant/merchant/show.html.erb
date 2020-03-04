@@ -1,17 +1,27 @@
 <p>Merchant Employee Information</br>
-  <%= current_user.merchants.first.name %></br>
-  <%= current_user.merchants.first.address %></br>
-  <%= current_user.merchants.first.city %></br>
-  <%= current_user.merchants.first.state %></br>
-  <%= current_user.merchants.first.zip %></br>
+  <%= @display.merchant.name %></br>
+  <%= @display.merchant.address %></br>
+  <%= @display.merchant.city %></br>
+  <%= @display.merchant.state %></br>
+  <%= @display.merchant.zip %></br>
 </p>
 
 <p>Orders</p>
-<%@orders.each do |order|%>
+<%@display.my_orders.each do |order|%>
   <p>Order number: <%=link_to "#{order.id}", "/merchant/orders/#{order.id}" %><br>
-    Total Items: <%=order.items_by_merchant(current_user.merchants.first.id)%><br>
-    Grand Total: <%=number_to_currency(order.grandtotal_by_merchant(current_user.merchants.first.id))%><br>
+    Total Items: <%=order.items_by_merchant(@display.merchant.id)%><br>
+    Grand Total: <%=number_to_currency(order.grandtotal_by_merchant(@display.merchant.id))%><br>
     Date Ordered: <%=order.creation%><br></p>
 <%end%>
 
 <%= link_to "My Items", merchant_items_path %>
+<%= link_to "New Bulk Discount", '/merchant/discounts/new' %>
+
+
+  <% @display.my_discounts.each do |discount| %>
+    <section id="discounts-<%= discount.id %>">
+    <p><%= discount.percentage %>% off per <%= discount.per_item %> Items.</p>
+    <%= link_to 'Edit Discount', edit_merchant_discount_path(discount.id) %>
+    <%= link_to 'Delete Discount', merchant_discount_path(discount.id), method: :delete %>
+    </section>
+  <% end %>

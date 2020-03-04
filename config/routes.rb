@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     get '/', to: 'merchant#show'
     resources :orders, only: [:show]
     resources :items, only: [:index, :update, :destroy]
+    # patch '/discounts/:id', to: "discounts#update"
+    resources :discounts, only: [:show, :new, :create, :edit, :update, :destroy]
   end
 
   namespace :admin do

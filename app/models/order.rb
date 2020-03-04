@@ -25,7 +25,7 @@ class Order <ApplicationRecord
   end
 
   def item_table
-    items.joins(:item_orders).select('items.*, item_orders.quantity as qty').distinct
+    items.joins(:item_orders).select('items.*, item_orders.price as subtotal, item_orders.quantity as qty').distinct
   end
 
   def cancel_items

@@ -49,56 +49,77 @@ describe Item, type: :model do
       expect(@chain.no_orders?).to eq(false)
     end
 
-  it "topfive" do
-    user = create(:user)
+    it 'elgibile_for_discount' do
+      @bike_shop.discounts.create!(percentage: 10, per_item: 2)
+      
+      expect(@chain.elgibile_for_discount(1)).to eq(false)
+      expect(@chain.elgibile_for_discount(2)).to eq(true)
+    end
 
-    bike_basket = @bike_shop.items.create!(name: "Bike Basket", description: "A place to put your junk.", price: 30, image: "https://images-na.ssl-images-amazon.com/images/I/4147WWbN64L._SX466_.jpg", inventory: 7)
-    bike_horn = @bike_shop.items.create!(name: "Bike Horn", description: "A truck horn for your bike!", price: 80, image: "https://images-na.ssl-images-amazon.com/images/I/4147WWbN64L._SX466_.jpg", inventory: 7)
-    bike_seat = @bike_shop.items.create!(name: "Bike Seat", description: "Super comfy!", price: 80, image: "https://images-na.ssl-images-amazon.com/images/I/4142WWbN64L._SX466_.jpg", inventory: 7)
-    shifter = @bike_shop.items.create!(name: "Shimano Shifters", description: "It'll always shift!", price: 180, image: "https://images-na.ssl-images-amazon.com/images/I/4142WWbN64L._SX466_.jpg", inventory: 7)
+    it 'discount' do
+      @bike_shop.discounts.create!(percentage: 10, per_item: 2)
+      
+      expect(@chain.discount(2)).to eq(10)
+    end
 
-    order = Order.create!(name: 'Meg', address: '123 Stang Ave', city: 'Hershey', state: 'PA', zip: 17033, user: user)
+    it 'discounted_price' do
+      expect(@chain.discounted_price(2)).to eq(50)
 
-    order.item_orders.create!(item: @chain, price: @chain.price, quantity: 2)
-    order.item_orders.create!(item: bike_basket, price: 3, quantity: 5)
-    order.item_orders.create!(item: bike_horn, price: 3, quantity: 7)
-    order.item_orders.create!(item: bike_seat, price: 3, quantity: 12)
-    order.item_orders.create!(item: shifter, price: 3, quantity:2)
+      @bike_shop.discounts.create!(percentage: 10, per_item: 2)
+      
+      expect(@chain.discounted_price(2)).to eq(45)
+    end
 
-    expect(Item.topfive[0].name).to eq("Bike Seat")
-    expect(Item.topfive[0].quantity).to eq(12)
-    expect(Item.topfive[1].name).to eq("Bike Horn")
-    expect(Item.topfive[1].quantity).to eq(7)
-    expect(Item.topfive[2].name).to eq("Bike Basket")
-    expect(Item.topfive[2].quantity).to eq(5)
-    expect(Item.topfive[3].quantity).to eq(2)
-    expect(Item.topfive[4].quantity).to eq(2)
+    it "topfive" do
+      user = create(:user)
+
+      bike_basket = @bike_shop.items.create!(name: "Bike Basket", description: "A place to put your junk.", price: 30, image: "https://images-na.ssl-images-amazon.com/images/I/4147WWbN64L._SX466_.jpg", inventory: 7)
+      bike_horn = @bike_shop.items.create!(name: "Bike Horn", description: "A truck horn for your bike!", price: 80, image: "https://images-na.ssl-images-amazon.com/images/I/4147WWbN64L._SX466_.jpg", inventory: 7)
+      bike_seat = @bike_shop.items.create!(name: "Bike Seat", description: "Super comfy!", price: 80, image: "https://images-na.ssl-images-amazon.com/images/I/4142WWbN64L._SX466_.jpg", inventory: 7)
+      shifter = @bike_shop.items.create!(name: "Shimano Shifters", description: "It'll always shift!", price: 180, image: "https://images-na.ssl-images-amazon.com/images/I/4142WWbN64L._SX466_.jpg", inventory: 7)
+
+      order = Order.create!(name: 'Meg', address: '123 Stang Ave', city: 'Hershey', state: 'PA', zip: 17033, user: user)
+
+      order.item_orders.create!(item: @chain, price: @chain.price, quantity: 2)
+      order.item_orders.create!(item: bike_basket, price: 3, quantity: 5)
+      order.item_orders.create!(item: bike_horn, price: 3, quantity: 7)
+      order.item_orders.create!(item: bike_seat, price: 3, quantity: 12)
+      order.item_orders.create!(item: shifter, price: 3, quantity:2)
+
+      expect(Item.topfive[0].name).to eq("Bike Seat")
+      expect(Item.topfive[0].quantity).to eq(12)
+      expect(Item.topfive[1].name).to eq("Bike Horn")
+      expect(Item.topfive[1].quantity).to eq(7)
+      expect(Item.topfive[2].name).to eq("Bike Basket")
+      expect(Item.topfive[2].quantity).to eq(5)
+      expect(Item.topfive[3].quantity).to eq(2)
+      expect(Item.topfive[4].quantity).to eq(2)
+    end
+
+    it "bottomfive" do
+      user = create(:user)
+
+      bike_basket = @bike_shop.items.create!(name: "Bike Basket", description: "A place to put your junk.", price: 30, image: "https://images-na.ssl-images-amazon.com/images/I/4147WWbN64L._SX466_.jpg", inventory: 7)
+      bike_horn = @bike_shop.items.create!(name: "Bike Horn", description: "A truck horn for your bike!", price: 80, image: "https://images-na.ssl-images-amazon.com/images/I/4147WWbN64L._SX466_.jpg", inventory: 7)
+      bike_seat = @bike_shop.items.create!(name: "Bike Seat", description: "Super comfy!", price: 80, image: "https://images-na.ssl-images-amazon.com/images/I/4142WWbN64L._SX466_.jpg", inventory: 7)
+      shifter = @bike_shop.items.create!(name: "Shimano Shifters", description: "It'll always shift!", price: 180, image: "https://images-na.ssl-images-amazon.com/images/I/4142WWbN64L._SX466_.jpg", inventory: 7)
+
+      order = Order.create!(name: 'Meg', address: '123 Stang Ave', city: 'Hershey', state: 'PA', zip: 17033, user: user)
+
+      order.item_orders.create!(item: @chain, price: @chain.price, quantity: 2)
+      order.item_orders.create!(item: bike_basket, price: 3, quantity: 5)
+      order.item_orders.create!(item: bike_horn, price: 3, quantity: 7)
+      order.item_orders.create!(item: bike_seat, price: 3, quantity: 12)
+      order.item_orders.create!(item: shifter, price: 3, quantity:2)
+
+      expect(Item.bottomfive[0].quantity).to eq(2)
+      expect(Item.bottomfive[1].quantity).to eq(2)
+      expect(Item.bottomfive[2].name).to eq("Bike Basket")
+      expect(Item.bottomfive[2].quantity).to eq(5)
+      expect(Item.bottomfive[3].name).to eq("Bike Horn")
+      expect(Item.bottomfive[3].quantity).to eq(7)
+      expect(Item.bottomfive[4].name).to eq("Bike Seat")
+      expect(Item.bottomfive[4].quantity).to eq(12)
+    end
   end
-
-  it "bottomfive" do
-    user = create(:user)
-
-    bike_basket = @bike_shop.items.create!(name: "Bike Basket", description: "A place to put your junk.", price: 30, image: "https://images-na.ssl-images-amazon.com/images/I/4147WWbN64L._SX466_.jpg", inventory: 7)
-    bike_horn = @bike_shop.items.create!(name: "Bike Horn", description: "A truck horn for your bike!", price: 80, image: "https://images-na.ssl-images-amazon.com/images/I/4147WWbN64L._SX466_.jpg", inventory: 7)
-    bike_seat = @bike_shop.items.create!(name: "Bike Seat", description: "Super comfy!", price: 80, image: "https://images-na.ssl-images-amazon.com/images/I/4142WWbN64L._SX466_.jpg", inventory: 7)
-    shifter = @bike_shop.items.create!(name: "Shimano Shifters", description: "It'll always shift!", price: 180, image: "https://images-na.ssl-images-amazon.com/images/I/4142WWbN64L._SX466_.jpg", inventory: 7)
-
-    order = Order.create!(name: 'Meg', address: '123 Stang Ave', city: 'Hershey', state: 'PA', zip: 17033, user: user)
-
-    order.item_orders.create!(item: @chain, price: @chain.price, quantity: 2)
-    order.item_orders.create!(item: bike_basket, price: 3, quantity: 5)
-    order.item_orders.create!(item: bike_horn, price: 3, quantity: 7)
-    order.item_orders.create!(item: bike_seat, price: 3, quantity: 12)
-    order.item_orders.create!(item: shifter, price: 3, quantity:2)
-
-    expect(Item.bottomfive[0].quantity).to eq(2)
-    expect(Item.bottomfive[1].quantity).to eq(2)
-    expect(Item.bottomfive[2].name).to eq("Bike Basket")
-    expect(Item.bottomfive[2].quantity).to eq(5)
-    expect(Item.bottomfive[3].name).to eq("Bike Horn")
-    expect(Item.bottomfive[3].quantity).to eq(7)
-    expect(Item.bottomfive[4].name).to eq("Bike Seat")
-    expect(Item.bottomfive[4].quantity).to eq(12)
-  end
-end
 end

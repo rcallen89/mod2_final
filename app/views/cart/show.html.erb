@@ -38,6 +38,9 @@
         </td>
       <td>
         <p><%=number_to_currency(cart.subtotal(item))%></p>
+        <% if item.elgibile_for_discount(quantity) %>
+          <%= item.discount(quantity) %>% off for bulk discount!
+        <% end %>
     </td>
     </tr>
   <% end %>
